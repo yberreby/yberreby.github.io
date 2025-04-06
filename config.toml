@@ -9,12 +9,12 @@ build_search_index = false
 
 theme = "even"
 
-title = "@yberreby's blog"
+title = "@yberreby"
 
 taxonomies = [
     # You can enable/disable RSS
-    {name = "categories", feed = true},
-    {name = "tags", feed = true},
+    { name = "categories", feed = true },
+    { name = "tags", feed = true },
 ]
 
 [markdown]
@@ -24,12 +24,13 @@ highlight_code = true
 
 [extra]
 # Put all your custom variables here
-
-even_title = "@yberreby's blog"
+katex_enable = true
+even_title = "@yberreby"
 # This is the default menu
 even_menu = [
     #{url = "$BASE_URL", name = "Home"},
     #{url = "$BASE_URL/categories", name = "Categories"},
     #{url = "$BASE_URL/tags", name = "Tags"},
-    {url = "$BASE_URL/about", name = "About"},
+    # { url = "$BASE_URL/posts", name = "Posts" },
+    # { url = "$BASE_URL/about", name = "About" },
 ]

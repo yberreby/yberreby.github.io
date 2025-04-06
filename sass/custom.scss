@@ -6,3 +6,33 @@
     font-family: sans-serif;
     font-size: 2em;
 }
+
+
+a.ref-link {
+    font-size: 1rem;
+    text-decoration: none;
+}
+
+#references {
+    font-size: 0.9rem;
+
+    dl {
+        display: grid;
+        overflow: hidden;
+        grid-template-columns: max-content minmax(0,1fr);
+        row-gap: 0.8rem;
+    }
+
+    dt {
+        grid-column-start: 1;
+        padding-right: 0.8rem;
+    }
+
+    dd {
+        grid-column-start: 2;
+        -webkit-hyphens: auto;
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+    }
+}

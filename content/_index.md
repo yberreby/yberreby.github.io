@@ -5,6 +5,8 @@ sort_by = "date"
 
 Hi! I'm Yohaï-Eliel Berreby, a Franco-Swiss researcher, engineer, and technophile, currently living in Montreal, Canada.
 
+I'm trying to crack intelligence.
+
 ## Research
 
 I am currently a PhD student at McGill University's Department of Physiology and [Mila](https://mila.quebec/), jointly supervised by Prof. Suresh Krishna and Prof. Audrey Durand.

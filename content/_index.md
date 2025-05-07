@@ -21,10 +21,13 @@ These days, I am working on bringing scalable deep reinforcement learning to com
 I've won [hackathons](/hackathons) (co)organized by [Optiver](https://optiver.com/), [Meta AI](https://www.meta.ai/), [Entrepreneurs First](https://www.joinef.com/), [SCOR](https://www.scor.com/en), [Stability AI](https://stability.ai/), [l'X](https://www.polytechnique.edu/), [Wavestone](https://www.wavestone.com/en/).
 I've also made podium in hackathons organized by [Mistral AI](https://mistral.ai/), [Orange Cyberdefense](https://www.orangecyberdefense.com/), and others.
 
+On the other side of the hackathon table, I was a Vice-President for the 2024 edition of PharmaHacks.
+I presided the Machine Learning committee, which designed neuro-AI and computational genomics challenges for 80+ students from across Canada, who were evaluated by a jury of McGill professors and myself.
+
 I was the 6th employee of the [Y Combinator startup Routine](https://www.ycombinator.com/companies/routine), which I joined in 2021 as an OCaml backend software engineer.
 I led the initiative that made it possible for Routine to use the same OCaml codebase on iOS as on other platforms, with fully-automated, type-safe, extensively-tested Swift <-> C <-> OCaml interoperability, and cross-compilation of OCaml code to `aarch64-apple-ios` (not officially supported at the time).
 
-Before that, I worked as an network and infrastructure engineering apprentice at [C2S Bouygues](https://www.c2s-bouygues.com/).
+Before that, I worked on network and infrastructure engineering at [C2S Bouygues](https://www.c2s-bouygues.com/).
 In the year I spent there, I automated the majority of the daily integrity checks in an IT infrastructure supporting the Bouygues Group's 80,000+ employees, designed, developed and deployed an internal data integration platform that cut down friction in inter-department operations within C2S, and worked on mission-critical infrastructure for the [OnDijon](https://www.c2s-bouygues.com/2021/06/02/smart-city-le-commencement-ondijon/) smart city.
 
 I hold a _Diplôme d'Ingénieur_ from [Télécom Paris](https://www.telecom-paris.fr/), where I specialized in embedded systems (bare-metal and low-level software, FPGA/ASIC hardware programming with SystemVerilog).

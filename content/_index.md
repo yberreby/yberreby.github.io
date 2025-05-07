@@ -20,6 +20,7 @@ These days, I am working on bringing scalable deep reinforcement learning to com
 
 I've won [hackathons](/hackathons) (co)organized by [Optiver](https://optiver.com/), [Meta AI](https://www.meta.ai/), [Entrepreneurs First](https://www.joinef.com/), [SCOR](https://www.scor.com/en), [Stability AI](https://stability.ai/), [l'X](https://www.polytechnique.edu/), [Wavestone](https://www.wavestone.com/en/).
 I've also made podium in hackathons organized by [Mistral AI](https://mistral.ai/), [Orange Cyberdefense](https://www.orangecyberdefense.com/), and others.
+Some of these achievements were featured in [official Télécom Paris press releases](https://www.telecom-paris.fr/market-making-cybersecurity-students-win-contests) and [highlighted by the then-Dean and President](https://x.com/nicogla/status/1465947225784205312).
 
 On the other side of the hackathon table, I was a Vice-President for the 2024 edition of PharmaHacks.
 I presided the Machine Learning committee, which designed neuro-AI and computational genomics challenges for 80+ students from across Canada, who were evaluated by a jury of McGill professors and myself.

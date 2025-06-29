@@ -12,10 +12,10 @@ I'm trying to crack intelligence.
 I am currently a PhD student at McGill University's Department of Physiology and [Mila](https://mila.quebec/), jointly supervised by Prof. Suresh Krishna and Prof. Audrey Durand.
 My research is currently focused on the intersection of AI neuroscience. How can the brain teach us to build better AI, and how can we use AI to understand the brain better?
 
-My first peer-reviewed publication, "How forward remapping predicts perisaccadic biphasic mislocalization", was accepted at the [Journal of Vision](https://jov.arvojournals.org/) in March 2025 and is currently in press.
-For this project, I developed a high-performance [JAX](https://github.com/google/jax/) codebase to simulate systems of coupled [DFT](https://dynamicfieldtheory.org/) differential equations, with support for efficient interactive exploration of parameters. [The code is publicly available here](https://github.com/m2b3/jov-2025-forward-remapping-mislocalization-code).
+My first peer-reviewed publication, ["How forward remapping predicts perisaccadic biphasic mislocalization"](https://doi.org/10.1167/jov.25.7.4), was published in the Journal of Vision in June 2025.
+For this computational neuroscience project, I developed a high-performance [JAX](https://github.com/google/jax/) codebase to simulate systems of coupled [DFT](https://dynamicfieldtheory.org/) differential equations, with support for efficient interactive exploration of parameters. [The code is publicly available here](https://github.com/m2b3/jov-2025-forward-remapping-mislocalization-code).
 
-These days, I am working on bringing scalable deep reinforcement learning to computer vision.
+These days, I work on **bringing scalable deep reinforcement learning to computer vision**.
 
 
 ## A few things I've done

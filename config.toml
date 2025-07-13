@@ -34,3 +34,6 @@ even_menu = [
     { url = "$BASE_URL/posts", name = "Posts" },
     # { url = "$BASE_URL/about", name = "About" },
 ]
+
+#[slugify]
+#paths_keep_dates = true

@@ -26,3 +26,22 @@ This decision was shocking to nearly everyone around me.
 As Glass Animals might put it: [🎵 whathehellishappening? 🎶](https://www.youtube.com/watch?v=wB3xTpw6ggI)
 
 ## I Swear I Can Explain
+
+This fork in the road is hardware-motivated.
+It comes after dealing with a series of catastrophic hardware failures, including a busted laptop hinge  [^1] and busted screw mounts, random boot failures, spotty Bluetooth, trackpack glitches, and more, across my last few devices.
+The last straw was seeing two of my recent laptops kernel panic from being _held wrong_, and the latest one pop open like a piñata when opened without several layers of super-strength tape holding the case together. This machine is not even a year old! [^2]
+
+After looking at a variety of options, including the obvious Lenovo ThinkPad line and the Framework, I decided to give Apple Silicon a chance this time around. This was partially out of curiosity. It is also because I am tired of fighting my hardware,  opting to fight "my" (Apple's, really) software this time around. Also, there's AppleCare+ and killer battery life. Yes, I am trying to feel better about it.
+
+## Setting It Up
+
+I decided to go for a _comfortable_ configuration: 48GB of Unified Memory, enough to run inference for various quantized LLMs and run small-scale ML training jobs ([within the bounds of lackluster `jax-metal` support](https://github.com/jax-ml/jax/issues?q=is%3Aopen+is%3Aissue+label%3A%22Apple+GPU+%28Metal%29+plugin%22)).
+
+The macOS package management story is not great. There's no native solution, just the third-party-but-widely-used [Homebrew](https://brew.sh/) and [MacPorts](https://www.macports.org/), with neither being comparable to Arch's `pacman`
+
+Ah, wait, [you can also run Nix on macOS](https://blog.6nok.org/how-i-use-nix-on-macos/), and there's a [popular starter template](https://github.com/dustinlyons/nixos-config).
+
+
+
+[^1]: Look up "Asus TUF hinge" online and witness the countless complaints.
+[^2]: It is still under warranty, but it is in such a state that looking at it wrong will finish it off. Given that Asus is notorious for failing to honor their warranty and that I don't expect underpaid support engineers to treat it with the necessary deference, I am giving this cursed machine an early retirement as an unmoving appliance. It'll be fine; just don't breathe near it.

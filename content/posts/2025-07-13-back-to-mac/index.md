@@ -21,9 +21,7 @@ Damn, I'm getting nostalgic just writing this.
 A few weeks ago, I caved in and bought a [14" M4 Pro MacBook Pro](https://www.apple.com/ca/shop/buy-mac/macbook-pro/14-inch-m4), which I intend to keep it running macOS.
 Would running Linux on it be an option? I certainly considered it. Unfortunately, the excellent [Asahi Linux](https://asahilinux.org/) project only appears to deliver good support up until M2 chips, with [support for M4 Pro remaining entirely inadequate](https://asahilinux.org/docs/platform/feature-support/m4/).
 
-This decision was shocking to nearly everyone around me.
-
-As Glass Animals might put it: [🎵 whathehellishappening? 🎶](https://www.youtube.com/watch?v=wB3xTpw6ggI)
+This decision was shocking to nearly everyone around me. Some wondered if I was OK. As Glass Animals might put it: [🎵 whathehellishappening? 🎶](https://www.youtube.com/watch?v=wB3xTpw6ggI)
 
 ## I Swear I Can Explain
 
@@ -37,9 +35,32 @@ After looking at a variety of options, including the obvious Lenovo ThinkPad lin
 
 I decided to go for a _comfortable_ configuration: 48GB of Unified Memory, enough to run inference for various quantized LLMs and run small-scale ML training jobs ([within the bounds of lackluster `jax-metal` support](https://github.com/jax-ml/jax/issues?q=is%3Aopen+is%3Aissue+label%3A%22Apple+GPU+%28Metal%29+plugin%22)).
 
-The macOS package management story is not great. There's no native solution, just the third-party-but-widely-used [Homebrew](https://brew.sh/) and [MacPorts](https://www.macports.org/), with neither being comparable to Arch's `pacman`
+The macOS package management story is not great. There's no native solution, just the third-party-but-widely-used [Homebrew](https://brew.sh/) and [MacPorts](https://www.macports.org/), with neither being comparable to Arch's `pacman`.
 
 Ah, wait, [you can also run Nix on macOS](https://blog.6nok.org/how-i-use-nix-on-macos/), and there's a [popular starter template](https://github.com/dustinlyons/nixos-config).
+
+*TODO: pkgman story*
+
+
+## A Selection of Essential Software
+
+With the package manager out of the way, the next question becomes what software is essential for me to work.
+
+Some of my day-to-day essentials are trivial to port over:
+- **A text editor**. For me, it's currently [Zed](https://zed.dev/) with vim keybindings.
+- **A proper shell**. `zsh` is the obvious and native choice, with [Starship](https://starship.rs/) as a fast, featureful prompt with sensible defaults.
+- **A Python environment**. I'm doing ML research, so this is hardly negotiable. Thankfully, all the pain here is abstracted away by the excellent [`uv`](https://docs.astral.sh/uv/), which I can hardly praise enough for making Python development fun again.
+- **Emacs**. Specifically, [Doom Emacs](https://github.com/doomemacs/doomemacs). Yes, I'm listing it separately from the text editor. These days, I'm only using Emacs for [magit](https://magit.vc/) and [org-roam](https://github.com/org-roam/org-roam/).
+- **A web browser**. Firefox.
+- **Spotify**.
+- [**Zotero**](https://www.zotero.org/), for academic citation management.
+
+
+For things that are more integrated with the OS, it's time to see what the macOS ecosystem has to offer:
+- [Raycast](https://www.raycast.com/) is a widely-acclaimed launcher.
+- [skhd.zig](https://github.com/jackielii/skhd.zig)
+
+
 
 
 

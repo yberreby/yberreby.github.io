@@ -221,5 +221,7 @@ It remains to be seen how these initial impressions will hold up over time, and 
 But I suppose I can live with it in exchange for a machine that doesn't kernel panic when I open the lid at the wrong angle.
 
 [^1]: Most of the code used in my notebooks lives in regular Python files and gets auto-reloaded using `%load_ext autoreload` and `%autoreload 2`. I frequently make interactive matplotlib plots using [ipympl](https://github.com/matplotlib/ipympl) and [ipywidgets](https://ipywidgets.readthedocs.io/en/stable/). All notebooks are checked into git in text format using [jupytext](https://github.com/mwouts/jupytext) pairing.
+
 [^2]: Look up "Asus TUF hinge" online and witness the countless complaints.
+
 [^3]: It is still under warranty, but it is in such a state that looking at it wrong will finish it off. Given that Asus is notorious for failing to honor their warranty and that I don't expect underpaid support engineers to treat it with the necessary deference, I am giving this cursed machine an early retirement as an unmoving appliance. It'll be fine; just don't breathe near it.

@@ -9,7 +9,7 @@ build_search_index = false
 
 theme = "even"
 
-title = "@yberreby - Yohaï-Eliel Berreby"
+title = "@yberreby"
 
 taxonomies = [
     # You can enable/disable RSS
@@ -25,7 +25,7 @@ highlight_code = true
 [extra]
 # Put all your custom variables here
 katex_enable = true
-even_title = "@yberreby"
+even_title = "@yberreby - Yohaï-Eliel Berreby"
 # This is the default menu
 even_menu = [
     #{url = "$BASE_URL", name = "Home"},

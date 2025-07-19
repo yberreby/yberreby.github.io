@@ -1,9 +1,8 @@
-
 {% extends "index.html" %}
 {% import "bib_macros.html" as bib_macros %}
 {% import "post_macros.html" as post_macros %}
 
-{% block title %}{{config.title}} - {{page.title}}{% endblock title %}
+{% block title %}{{page.title}} - {{config.title}}{% endblock title %}
 
 {% block content %}
 {% if page.toc %}

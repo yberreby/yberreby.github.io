@@ -10,6 +10,12 @@ This recounts my experience configuring it to hit the ground running from day 1.
 
 If you're a Linux user making the switch to Apple Silicon, or thinking of doing so, this post may be of interest.
 
+
+![](./demo.png)
+
+_[Zed](https://zed.dev/), [AeroSpace](https://github.com/nikitabobko/AeroSpace), [Raycast](https://www.raycast.com/)'s "Switch Windows" and [Alacritty](https://alacritty.org/) in action._
+
+
 ## What I Need My Computer For
 
 The way one uses their computer is shaped by their needs, values, and habits.

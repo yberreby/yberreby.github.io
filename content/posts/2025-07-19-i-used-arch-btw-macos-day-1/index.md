@@ -149,7 +149,7 @@ There's no good built-in solution.
 [MacPorts](https://www.macports.org/) is older but less popular.
 Neither is comparable to Arch's `pacman`.
 
-Homebrew's filesystem permission handling is controversial, to say the least, and in my prior experience, it has a tendency to fail at a package manager's main job: ensuring that new dependencies don't break the system.
+Homebrew's filesystem permission handling is controversial, to say the least, and it has a tendency to fail at a package manager's main job: ensuring that new dependencies don't break the system.
 Those issues aside, it mostly works.
 
 There's something more interesting to try, though: you can run [Nix](https://nixos.org/) on macOS.
@@ -162,7 +162,8 @@ Thankfully, there's a [popular starter template](https://github.com/dustinlyons/
 
 ## Of Course It Doesn't Work Out of The Box
 
-Following @dustinlyons's instructions as of [commit `da88287`](https://github.com/dustinlyons/nixos-config/tree/da88287), I installed _Nix_ using the Determinate Systems installer—not _Determinate Nix_.
+Following @dustinlyons's instructions as of [commit `da88287`](https://github.com/dustinlyons/nixos-config/tree/da88287), I installed _Nix_ using the Determinate Systems installer.
+This is not to be confused with installing _Determinate Nix_ using that very same installer.
 Rookie mistake! Definitely not a footgun.
 
 I then _did not_ add `experimental-features = nix-command flakes` to `/etc/nix/nix.conf` during setup.
@@ -188,7 +189,7 @@ Yet, the installation failed at first, with a `mismatching GID` error.
 
 I then encountered more issues.
 - `test-fs-cp.mjs` failed when trying to build `nodejs-22.17.0`.
-  I don't need this LTS node version anyway, so I replaced the `nodejs` package with `nodejs_24` and removed the corresponding `nodePackages` entries from the relevant `packages.nix` config, and the build succeeded.
+  I don't need this LTS Node.js version anyway, so I replaced the `nodejs` package with `nodejs_24` and removed the corresponding `nodePackages` entries from the relevant `packages.nix` config.
 - The `alacritty` configuration included in the template was obsolete, resulting in a number of `unused config key` warnings.
 - I had an issue with the `masApps` key, which included entries for `1password` and `wireguard`. I discarded these, as I need neither.
 - The Dock configuration was slightly broken out-of-the-box, but easy to adjust.
@@ -237,7 +238,6 @@ Also considering [WezTerm](https://wezterm.org/index.html).
 
 This is how far I got on the first day.
 This setup isn't perfect, but it's usable; I can perform most of my workflow without pulling my hair out.
-
 I'll be honing the system gradually.
 This includes slimming down and modernizing my `nixos-config`, understanding Nix beyond the surface level, mastering AeroSpace and Raycast, and fixing various little annoyances as they pop up.
 
@@ -246,9 +246,7 @@ It is great to look at, hold, and type on.
 The trackpad is top-notch.
 Using it generally feels snappy.
 The built-in software gives the general impression of having been designed, not cobbled together.
-
 It remains to be seen how these initial impressions will hold up over time, and it is certainly a shame that one has to resort to third-party tools for something as fundamental as package management.
-
 But I suppose I can live with it in exchange for a machine that doesn't kernel panic when I open the lid at the wrong angle.
 
 [^1]: Most of the code used in my notebooks lives in regular Python files and gets auto-reloaded using `%load_ext autoreload` and `%autoreload 2`.

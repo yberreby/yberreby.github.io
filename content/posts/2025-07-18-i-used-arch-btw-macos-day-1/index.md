@@ -1,6 +1,6 @@
 +++
 title = "I Used Arch, BTW: macOS, Day 1"
-draft = true
+draft = false
 +++
 
 TL;DR:

@@ -52,7 +52,7 @@ From day one, I embraced the Arch spirit, consistently running either [i3](https
 Arch is a stellar distro.
 The package management story is top-notch.
 Packages are up-to-date, easy to create and maintain, and come close to the upstream sources without distro-specific patches.
-[`pacman`](https://wiki.archlinux.org/title/Pacman) just works, and [AUR](https://aur.archlinux.org/) gives you access to the most obscure of packages.
+[`pacman`](https://wiki.archlinux.org/title/Pacman) just works, and the [AUR](https://aur.archlinux.org/) gives you access to the most obscure of packages.
 The documentation on the [Arch Wiki](https://wiki.archlinux.org/title/Main_page) is excellent, to the point that it's often worth checking when troubleshooting a problem on another distro.
 On Arch, you build your system piece by piece, trading initial setup time for deep understanding.
 This is both intellectually satisfying and practically empowering.

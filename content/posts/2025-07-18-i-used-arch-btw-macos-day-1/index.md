@@ -43,7 +43,7 @@ For the longest time, this role was fulfilled by my Arch Linux laptops and deskt
 I didn't start out on Linux.
 I digitally grew up on [System 7](https://en.wikipedia.org/wiki/System_7), [Mac OS 9](https://en.wikipedia.org/wiki/Mac_OS_9), then [Mac OS X](https://en.wikipedia.org/wiki/Mac_OS_X_Snow_Leopard), in an Apple-centric household where "Windows" was a profanity.
 While the UNIX backbone of Mac OS X made it a great introduction to computing, I eventually grew frustrated with the developer experience, exorbitant hardware repair costs (what do you mean, everything is glued or soldered?), lackluster GPU performance, and poor support for software projects that I wanted to hack around with.
-As a result, I switched to [Arch Linux](https://archlinux.org/) in 2016 after briefly trying Debian, Ubuntu, and Fedora
+As a result, I switched to [Arch Linux](https://archlinux.org/) in 2016 after briefly trying Debian, Ubuntu, and Fedora.
 Since then, I've faithfully used Arch as my daily driver, running it on a trusty [Asus Zenbook UX410U](https://www.asus.com/laptops/for-home/zenbook/zenbook-ux410/), two desktop workstations that I built from individual components, many VirtualBox VMs, two consecutive Tuxedo Pulse 15 laptops from [Tuxedo Computers](https://www.tuxedocomputers.com/), an Asus TUF A15, and a few other devices. I reinstalled Arch a couple of times at the beginning, then mostly migrated my systems one SSD swap or [`dd`](https://wiki.archlinux.org/title/Dd) clone at a time after the thrill of a fresh install wore off.
 
 
@@ -77,7 +77,7 @@ I don't know about you, but I want to _use my machine to tackle important issues
 
 Driver issues aren't all there is.
 Anecdotally, I've recently been dealing with a series of catastrophic hardware failures, including a busted laptop hinge[^2] and busted screw mounts, random boot failures, spotty Bluetooth, trackpad glitches, and more, across my last few devices.
-Recently, I saw two of my laptops kernel panic from being _held wrong_, and the latest one pop open like a piñata when opened without several layers of super-strength tape holding the case together. This machine is not even a year old![^3]
+Recently, I saw two of my laptops kernel panic from being _held wrong_, and the latest one pop open like a piñata when opened without several layers of super-strength tape holding the case together. This machine is not even a year old[^3].
 
 Now, of course, similar issues can and do occur on MacBooks as well, and my sample size is statistically insignificant.
 However, I don't think it is too much to ask for 1) warranties that are actually honored, and 2) hardware that amounts to more than a haphazardly assembled pile of fast components.
@@ -85,7 +85,7 @@ However, I don't think it is too much to ask for 1) warranties that are actually
 Could a [Dell XPS](https://wiki.archlinux.org/title/Dell_XPS_15), [Lenovo ThinkPad](https://wiki.archlinux.org/title/Laptop/Lenovo), [Surface Pro](https://wiki.archlinux.org/title/Microsoft_Surface_Pro_9), [TUXEDO](https://www.tuxedocomputers.com/en/Arch-Linux-and-Manjaro-on-TUXEDO-computers.tuxedo) or [Framework Laptop](https://frame.work/ca/en) fit the bill? Probably, depending on the compromises one is willing to make.
 However, I decided to give Apple Silicon a chance this time around. This was partially out of curiosity; Apple laptops are notorious for their combination of build quality, battery life, unified memory, and customer service. I had also briefly used a M1 MacBook Air out of necessity, while working on cross-compilation of OCaml code to iOS at [Routine](https://www.ycombinator.com/companies/routine), and came out quite impressed with the smoothness of the UX on this relatively cheap machine.
 
-Thus, tired of fighting my _hardware_, I opted to fight "my" (Apple's, really) _software_ this time around, trading my meticulously-honed setup running for the foreign and locked-down macOS.
+Thus, tired of fighting my _hardware_, I opted to fight "my" (Apple's, really) _software_ this time around, trading my meticulously-honed setup for the foreign and locked-down macOS.
 
 
 ## Eating the Forbidden Fruit
@@ -102,12 +102,12 @@ Quite frankly, I probably still wouldn't try running Linux on it even if there w
 Running macOS does _not_ mean giving up on the past decade of accumulated experience.
 I live inside of a shell, I want my configuration to be as declarative as possible, a good [tiling window manager](https://en.wikipedia.org/wiki/Tiling_window_manager) is non-negotiable, I want my window switching to be nearly instantaneous, and I am not about to start preferring the mouse/touchpad over the keyboard.
 
-I got ahold of my new machine yesterday, and set out to set it up the "lazy power user" way: I wanted to opportunistically get back as much of my workflow as possible, without going down a rabbit hole of configuration.
+I got ahold of my new machine yesterday, and opted to set it up the "lazy power user" way: I wanted to opportunistically get back as much of my workflow as possible, without going down a rabbit hole of configuration.
 Not all battles are worth fighting. It is a delicate balance between _"I don't have time to configure this, I have urgent things to do"_ and _"I am now taking three times as long to do anything because my SSH agent doesn't work, my most-frequently-used shortcuts no longer work, and I manage my packages with `./configure && make && make install`."_
 
 I will live without my terminal's colors being configured _just right_ for now, as long as they're reasonable. Same with my shell prompt; if it has a decent git indicator and autocompletion, that's a good start. There is something freeing in embracing sane defaults, then gradually improving them.
 
-Let's call this a Lazy Frankenmac; not in the Hackintosh sense, but in the sense that it's macOS set up in a Linux spirit.
+Let's call this a "Lazy Frankenmac"; not in the Hackintosh sense, but in the sense that it's macOS set up in a Linux spirit.
 
 What key ingredients would that involve?
 - A sensible package and configuration management story.

@@ -108,7 +108,7 @@ Tired of fighting my _hardware_, I opted to fight "my" (Apple's, really) _softwa
 
 ## Eating the Forbidden Fruit
 
-When I caved in and bought a custom [14" 48GB M4 Pro MacBook Pro](https://www.apple.com/ca/shop/buy-mac/macbook-pro/14-inch-m4) with the intent of keeping macOS on it, reactions ranged from confusion ("_this guy_ bought a Mac?!") to glee ("how the mighty have fallen!") to disappointment ("you should have bought a Framework") to concern ("are you sure you're OK?").
+When I caved in and bought a custom [14" 48GB M4 Pro MacBook Pro](https://www.apple.com/ca/shop/buy-mac/macbook-pro/14-inch-m4-pro) with the intent of keeping macOS on it, reactions ranged from confusion ("_this guy_ bought a Mac?!") to glee ("how the mighty have fallen!") to disappointment ("you should have bought a Framework") to concern ("are you sure you're OK?").
 The general sentiment was [whathehellishappening? 🎶](https://www.youtube.com/watch?v=wB3xTpw6ggI).
 
 Would running Linux on it be an option?

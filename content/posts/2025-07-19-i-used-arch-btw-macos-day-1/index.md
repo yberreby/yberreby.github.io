@@ -153,12 +153,9 @@ The macOS package management story is not great.
 There's no good built-in solution.
 [Homebrew](https://brew.sh/) is by far the most popular package manager, widely used by developers.
 [MacPorts](https://www.macports.org/) is older but less popular.
-Neither is comparable to Arch's `pacman`.
+Neither is really comparable to Arch's `pacman`.
 
-Homebrew's filesystem permission handling is controversial, to say the least, and it has a tendency to fail at a package manager's main job: ensuring that new dependencies don't break the system.
-Those issues aside, it mostly works.
-
-There's something more interesting to try, though: you can run [Nix](https://nixos.org/) on macOS.
+There's something more exotic than Homebrew and MacPorts to try: you can run [Nix](https://nixos.org/) on macOS.
 [`nix-darwin`](https://github.com/nix-darwin/nix-darwin) does the legwork and [`nix-homebrew`](https://github.com/zhaofengli/nix-homebrew) serves as a convenient escape hatch for when you need Homebrew [Casks](https://github.com/Homebrew/homebrew-cask) or when the Nix package you need is missing or outdated.
 
 Nix is conceptually appealing (purely functional, declarative package and configuration management, yay!), but can be quite difficult to troubleshoot.

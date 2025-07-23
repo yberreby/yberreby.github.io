@@ -1,0 +1,6 @@
+native:
+  cargo build
+
+web:
+  cargo build --target wasm32-unknown-unknown --release
+  ~/.cargo/bin/wasm-bindgen --out-dir pkg --target web --no-typescript target/wasm32-unknown-unknown/release/diffmaze.wasm

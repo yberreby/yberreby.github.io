@@ -533,6 +533,17 @@ impl TrainingSession {
         result
     }
 
+    /// Get current logits sequence
+    pub fn get_logits(&self) -> Vec<f32> {
+        match self.model.forward() {
+            Ok(logits_seq) => match logits_seq.to_vec2::<f32>() {
+                Ok(v) => v.into_iter().flatten().collect::<Vec<f32>>(),
+                Err(_) => vec![],
+            },
+            Err(_) => vec![],
+        }
+    }
+
     /// Get current step number
     pub fn get_step(&self) -> u32 {
         self.step as u32

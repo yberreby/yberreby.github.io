@@ -91,11 +91,15 @@ function trainLoop() {
     const probs = stepData.slice(0, -1);
     const loss = stepData[stepData.length - 1];
 
+    // Get logits
+    const logits = session.get_logits();
+
     // Update current state
     currentState = {
       currentStep: session.get_step(),
       probs: probs,
       loss: loss,
+      logits: logits,
       isComplete: false,
     };
 

@@ -380,6 +380,110 @@ template = "about.html"
         }
     }
 
+    function drawGreedyPath(ctx, maze, width, height, probs, logits, cellSize, padding) {
+        const NUM_ACTIONS = 5;
+        const ACTION_UP = 0;
+        const ACTION_RIGHT = 1;
+        const ACTION_DOWN = 2;
+        const ACTION_LEFT = 3;
+        const ACTION_NOOP = 4;
+
+        // Parse logits into timesteps
+        const timesteps = logits.length / NUM_ACTIONS;
+
+        // Start from initial position (0, 0)
+        let currentI = 0;
+        let currentJ = 0;
+        const path = [{i: currentI, j: currentJ}];
+
+        // Simulate greedy policy execution
+        for (let t = 0; t < timesteps; t++) {
+            const idx = currentI * width + currentJ;
+
+            // Get logits for current timestep
+            const logitsStart = t * NUM_ACTIONS;
+            const currentLogits = logits.slice(logitsStart, logitsStart + NUM_ACTIONS);
+
+            // Find valid actions (not blocked by walls)
+            const validActions = [];
+
+            // Check each action
+            if (currentI > 0 && !maze[currentI - 1][currentJ]) {
+                validActions.push({action: ACTION_UP, logit: currentLogits[ACTION_UP]});
+            }
+            if (currentJ < width - 1 && !maze[currentI][currentJ + 1]) {
+                validActions.push({action: ACTION_RIGHT, logit: currentLogits[ACTION_RIGHT]});
+            }
+            if (currentI < height - 1 && !maze[currentI + 1][currentJ]) {
+                validActions.push({action: ACTION_DOWN, logit: currentLogits[ACTION_DOWN]});
+            }
+            if (currentJ > 0 && !maze[currentI][currentJ - 1]) {
+                validActions.push({action: ACTION_LEFT, logit: currentLogits[ACTION_LEFT]});
+            }
+            validActions.push({action: ACTION_NOOP, logit: currentLogits[ACTION_NOOP]});
+
+            // Choose action with highest logit among valid actions
+            if (validActions.length === 0) break;
+
+            const bestAction = validActions.reduce((best, current) =>
+                current.logit > best.logit ? current : best
+            );
+
+            // Apply action
+            let newI = currentI;
+            let newJ = currentJ;
+
+            switch (bestAction.action) {
+                case ACTION_UP:
+                    newI = currentI - 1;
+                    break;
+                case ACTION_RIGHT:
+                    newJ = currentJ + 1;
+                    break;
+                case ACTION_DOWN:
+                    newI = currentI + 1;
+                    break;
+                case ACTION_LEFT:
+                    newJ = currentJ - 1;
+                    break;
+                case ACTION_NOOP:
+                    // Stay in place
+                    break;
+            }
+
+            // Only move if the new position is different
+            if (newI !== currentI || newJ !== currentJ) {
+                currentI = newI;
+                currentJ = newJ;
+                path.push({i: currentI, j: currentJ});
+            }
+
+            // Stop if we reached the goal
+            if (currentI === height - 1 && currentJ === width - 1) {
+                break;
+            }
+        }
+
+        // Draw the path
+        ctx.strokeStyle = 'blue';
+        ctx.lineWidth = cellSize * 0.1;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+
+        ctx.beginPath();
+        for (let i = 0; i < path.length; i++) {
+            const x = padding + path[i].j * cellSize + cellSize / 2;
+            const y = padding + path[i].i * cellSize + cellSize / 2;
+
+            if (i === 0) {
+                ctx.moveTo(x, y);
+            } else {
+                ctx.lineTo(x, y);
+            }
+        }
+        ctx.stroke();
+    }
+
     function animateWithWorker(maze, width, height, startIdx, goalIdx) {
         const animStart = performance.now();
         const canvas = document.getElementById('maze');
@@ -411,7 +515,7 @@ template = "about.html"
 
                 worker.removeEventListener('message', stateHandler);
 
-                const { currentStep, probs, loss, isComplete, reason } = e.data;
+                const { currentStep, probs, loss, logits, isComplete, reason } = e.data;
 
                 // Draw current state if we have probabilities
                 if (probs && probs.length > 0) {
@@ -454,6 +558,11 @@ template = "about.html"
                         }
                     }
 
+                    // Draw greedy policy path if we have logits
+                    if (logits && logits.length > 0) {
+                        drawGreedyPath(ctx, maze, width, height, probs, logits, cellSize, padding);
+                    }
+
                     // Draw start and goal
                     ctx.font = `bold ${Math.floor(cellSize * 0.6)}px sans-serif`;
                     ctx.textAlign = 'center';
@@ -462,14 +571,14 @@ template = "about.html"
                     // Start
                     const startJ = startIdx % width;
                     const startI = Math.floor(startIdx / width);
-                    ctx.fillStyle = 'lime';
+                    ctx.fillStyle = 'darkgreen';
                     ctx.fillText('S', padding + startJ * cellSize + cellSize/2,
                                 padding + startI * cellSize + cellSize/2);
 
                     // Goal
                     const goalJ = goalIdx % width;
                     const goalI = Math.floor(goalIdx / width);
-                    ctx.fillStyle = 'red';
+                    ctx.fillStyle = 'purple';
                     ctx.fillText('G', padding + goalJ * cellSize + cellSize/2,
                                 padding + goalI * cellSize + cellSize/2);
 

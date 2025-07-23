@@ -543,5 +543,6 @@ This demo uses gradient descent to solve a discrete maze.
 **This runs entirely on your local device**, thanks to [candle](https://github.com/huggingface/candle) and [Rust's support for WebAssembly](https://rustwasm.github.io/book/).
 You can disconnect from the Internet and you will still be able to use this demo!
 
-
 **Appearances can be deceiving**: On harder and larger grids, you might find that much time is spent being "stuck", with a dramatic phase transition. Beware! And perhaps try increasing the step count.
+
+[This demo's code is available on GitHub.](https://github.com/yberreby/yberreby.github.io/tree/master/content/pages/discrete-maze-backprop-candle-wasm)

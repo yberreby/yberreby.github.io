@@ -4,6 +4,8 @@ path = "discrete-maze-backprop-candle-wasm"
 template = "about.html"
 +++
 
+# Backpropagating through a maze with candle and WASM
+
 <style>
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -18,6 +20,7 @@ template = "about.html"
         text-align: center;
         color: #333;
         margin-bottom: 30px;
+        font-size: 26px;
     }
 
     #info {

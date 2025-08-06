@@ -1,8 +1,8 @@
 use candle_core::{DType, Device, IndexOp, Result, Tensor};
 use candle_nn::{Optimizer, VarBuilder, VarMap};
-use rand::Rng;
-use rand::SeedableRng;
 use rand::rngs::SmallRng;
+use rand::{Rng, SeedableRng};
+use std::cell::RefCell;
 use std::collections::{HashSet, VecDeque};
 
 #[cfg(target_arch = "wasm32")]
@@ -15,6 +15,11 @@ const ACTION_DOWN: usize = 2;
 const ACTION_LEFT: usize = 3;
 const ACTION_NOOP: usize = 4;
 const NUM_ACTIONS: usize = 5;
+
+// Thread-local RNG, seeded once on first use
+thread_local! {
+    static RNG: RefCell<SmallRng> = RefCell::new(SmallRng::from_seed([43u8; 32]));
+}
 
 /// Differentiable maze navigation with soft agent position
 pub struct DifferentiableMaze {
@@ -305,34 +310,38 @@ impl MazePolicy {
     }
 }
 
-/// Generate a andom maze with guaranteed path from start to goal
+/// Generate a random maze with guaranteed path from start to goal
 pub fn generate_random_maze(width: usize, height: usize, wall_probability: f32) -> Vec<Vec<bool>> {
-    let mut rng = SmallRng::from_seed([43u8; 32]);
     let mut maze = vec![vec![false; width]; height];
 
-    // Randomly place walls
-    for i in 0..height {
-        for j in 0..width {
-            // Keep start and goal free
-            if (i == 0 && j == 0) || (i == height - 1 && j == width - 1) {
-                continue;
-            }
+    // Use thread-local RNG
+    RNG.with(|rng| {
+        let mut rng = rng.borrow_mut();
 
-            if rng.random::<f32>() < wall_probability {
-                maze[i][j] = true;
+        // Randomly place walls
+        for i in 0..height {
+            for j in 0..width {
+                // Keep start and goal free
+                if (i == 0 && j == 0) || (i == height - 1 && j == width - 1) {
+                    continue;
+                }
+
+                if rng.random_range(0.0..1.0) < wall_probability {
+                    maze[i][j] = true;
+                }
             }
         }
-    }
 
-    // Ensure path exists from start to goal using BFS
-    while !has_path(&maze, (0, 0), (height - 1, width - 1)) {
-        // Remove a random wall
-        let i = rng.random_range(0..height);
-        let j = rng.random_range(0..width);
-        if maze[i][j] && !(i == 0 && j == 0) && !(i == height - 1 && j == width - 1) {
-            maze[i][j] = false;
+        // Ensure path exists from start to goal using BFS
+        while !has_path(&maze, (0, 0), (height - 1, width - 1)) {
+            // Remove a random wall
+            let i = rng.random_range(0..height);
+            let j = rng.random_range(0..width);
+            if maze[i][j] && !(i == 0 && j == 0) && !(i == height - 1 && j == width - 1) {
+                maze[i][j] = false;
+            }
         }
-    }
+    });
 
     maze
 }
@@ -347,18 +356,27 @@ fn create_adam_params(lr: f32) -> candle_nn::ParamsAdamW {
 
 /// Check if path exists between two points using BFS
 fn has_path(maze: &[Vec<bool>], start: (usize, usize), goal: (usize, usize)) -> bool {
+    shortest_path_length(maze, start, goal).is_some()
+}
+
+/// Find shortest path length between two points using BFS
+fn shortest_path_length(
+    maze: &[Vec<bool>],
+    start: (usize, usize),
+    goal: (usize, usize),
+) -> Option<usize> {
     let height = maze.len();
     let width = maze[0].len();
 
     let mut visited = HashSet::new();
     let mut queue = VecDeque::new();
 
-    queue.push_back(start);
+    queue.push_back((start, 0));
     visited.insert(start);
 
-    while let Some((i, j)) = queue.pop_front() {
+    while let Some(((i, j), dist)) = queue.pop_front() {
         if (i, j) == goal {
-            return true;
+            return Some(dist);
         }
 
         // Check all 4 neighbors
@@ -372,13 +390,13 @@ fn has_path(maze: &[Vec<bool>], start: (usize, usize), goal: (usize, usize)) -> 
 
                 if !maze[ni][nj] && !visited.contains(&(ni, nj)) {
                     visited.insert((ni, nj));
-                    queue.push_back((ni, nj));
+                    queue.push_back(((ni, nj), dist + 1));
                 }
             }
         }
     }
 
-    false
+    None
 }
 
 /// Training session that maintains state between steps
@@ -426,8 +444,13 @@ impl TrainingSession {
         init_state_vec[start_idx] = 1.0;
         let init_state = Tensor::from_vec(init_state_vec, maze.n_cells, &device).ok()?;
 
-        // Trainable parameters - scale horizon with maze size
-        let t_horizon = ((width + height) as f32 * 1.5) as usize;
+        // Calculate shortest path and set horizon based on it
+        let shortest_path =
+            shortest_path_length(&raw_maze, (0, 0), (height - 1, width - 1)).unwrap();
+
+        // Set horizon to 2x shortest path for leeway
+        let t_horizon = shortest_path * 2;
+
         let varmap = VarMap::new();
         let vs = VarBuilder::from_varmap(&varmap, DType::F32, &device);
 

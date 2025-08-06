@@ -946,6 +946,8 @@ For this demo, it is enough to show interesting behavior.
 At each timestep, probability mass flows according to:
 \\[ s_{t+1}[r',c'] = \sum_{r=0}^{H-1} \sum_{c=0}^{W-1} \sum_{a \in \mathcal{A}} s_t[r,c] \cdot \pi_t(a|r,c) \cdot T^{(a)}_{(r,c) \to (r',c')} \\]
 
+In other words: the probability of being at position \\( (r',c') \\) next is the sum over all ways to get there. For each possible starting position \\( (r,c) \\), we take the probability \\( s_t[r,c] \\) of being there, multiply by the probability \\( \pi_t(a|r,c) \\) of taking action \\( a \\), and multiply by \\( T^{(a)}_{(r,c) \to (r',c')} \\) which is 1 if action \\( a \\) moves you from \\( (r,c) \\) to \\( (r',c') \\) and 0 otherwise.
+
 Here, position dependence emerges (we do need it somewhere): we apply a masked softmax using the same \\( \theta_t \\) at every position, but only over valid actions:
 \\[ \pi_t(a|r,c) = \begin{cases} \frac{\exp(\theta_t[a])}{\sum_{a' \in V_{r,c}} \exp(\theta_t[a'])} & \text{if } a \in V_{r,c} \\\\ 0 & \text{otherwise} \end{cases} \\]
 

@@ -1,10 +1,9 @@
 +++
 title = "Backpropagating through a maze with candle and WASM"
 path = "discrete-maze-backprop-candle-wasm"
-template = "about.html"
+template = "page.html"
+date = "2025-08-06"
 +++
-
-# Backpropagating through a maze with candle and WASM
 
 <style>
     body {

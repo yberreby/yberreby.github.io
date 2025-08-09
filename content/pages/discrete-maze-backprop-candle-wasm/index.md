@@ -198,7 +198,7 @@ date = "2025-08-06"
         <input type="range" id="density">
     </div>
     <div class="control-group">
-        <label for="learningRate">Learning Rate: <span id="learningRateValue"></span></label>
+        <label for="learningRate">Learning Rate: <input type="number" id="learningRateInput" step="0.0005" min="0.0001" max="1" style="width: 100px; margin-left: 5px;"></label>
         <input type="range" id="learningRate">
     </div>
     <div class="control-group">
@@ -248,14 +248,22 @@ date = "2025-08-06"
         document.getElementById('densityValue').textContent = CONFIG.wallDensity.default;
 
         // Learning rate (logarithmic scale)
-        const lrInput = document.getElementById('learningRate');
-        lrInput.min = CONFIG.learningRate.logMin;
-        lrInput.max = CONFIG.learningRate.logMax;
-        lrInput.step = CONFIG.learningRate.step;
-        // Set slider to log value of default learning rate
+        const lrSlider = document.getElementById('learningRate');
+        const lrInput = document.getElementById('learningRateInput');
+        
+        // Initialize slider (log scale)
+        lrSlider.min = CONFIG.learningRate.logMin;
+        lrSlider.max = CONFIG.learningRate.logMax;
+        lrSlider.step = CONFIG.learningRate.step;
         const defaultLogValue = Math.log10(CONFIG.learningRate.default);
-        lrInput.value = defaultLogValue;
-        document.getElementById('learningRateValue').textContent = CONFIG.learningRate.default;
+        lrSlider.value = defaultLogValue;
+        
+        // Initialize number input (actual values)
+        lrInput.min = Math.pow(10, CONFIG.learningRate.logMin);
+        lrInput.max = Math.pow(10, CONFIG.learningRate.logMax);
+        // Format initial value to 6 significant digits
+        const formattedDefault = parseFloat(CONFIG.learningRate.default.toPrecision(6));
+        lrInput.value = formattedDefault;
 
         // Max steps
         const maxStepsInput = document.getElementById('maxSteps');
@@ -271,11 +279,22 @@ date = "2025-08-06"
         document.getElementById('densityValue').textContent = e.target.value;
     });
 
-    // Update learning rate display (convert from log to actual value)
+    // Learning rate slider (updates number input)
     document.getElementById('learningRate').addEventListener('input', (e) => {
         const logValue = parseFloat(e.target.value);
         const actualValue = Math.pow(10, logValue);
-        document.getElementById('learningRateValue').textContent = actualValue.toFixed(6);
+        // Format to 6 significant digits for readability
+        const formattedValue = parseFloat(actualValue.toPrecision(6));
+        document.getElementById('learningRateInput').value = formattedValue;
+    });
+
+    // Learning rate number input (updates slider)
+    document.getElementById('learningRateInput').addEventListener('input', (e) => {
+        const actualValue = parseFloat(e.target.value);
+        if (actualValue > 0) {
+            const logValue = Math.log10(actualValue);
+            document.getElementById('learningRate').value = logValue;
+        }
     });
 
     // Update max steps display
@@ -284,7 +303,7 @@ date = "2025-08-06"
     });
 
     function setControlsEnabled(enabled) {
-        const controls = ['width', 'height', 'density', 'learningRate', 'maxSteps', 'generate'];
+        const controls = ['width', 'height', 'density', 'learningRate', 'learningRateInput', 'maxSteps', 'generate'];
         controls.forEach(id => {
             const elem = document.getElementById(id);
             if (elem) elem.disabled = !enabled;
@@ -364,9 +383,8 @@ date = "2025-08-06"
         const width = parseInt(document.getElementById('width').value);
         const height = parseInt(document.getElementById('height').value);
         const wallProb = parseFloat(document.getElementById('density').value);
-        // Convert log scale slider value to actual learning rate
-        const learningRateLog = parseFloat(document.getElementById('learningRate').value);
-        const learningRate = Math.pow(10, learningRateLog);
+        // Get learning rate directly from number input
+        const learningRate = parseFloat(document.getElementById('learningRateInput').value);
 
         // Disable controls during training
         setControlsEnabled(false);

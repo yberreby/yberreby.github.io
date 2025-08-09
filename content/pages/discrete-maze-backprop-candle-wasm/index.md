@@ -214,7 +214,7 @@ date = "2025-08-06"
         width: { default: 10, min: 2, max: 20 },
         height: { default: 10, min: 2, max: 20 },
         wallDensity: { default: 0.3, min: 0.1, max: 0.5, step: 0.05 },
-        learningRate: { default: 0.005, logMin: -4, logMax: 0, step: 0.1 },
+        learningRate: { default: 0.005, logMin: -4, logMax: 0, logStep: 0.1 },
         maxSteps: { default: 1000, min: 100, max: 5000, step: 100 },
         convergenceThreshold: 0.98, // Stop when goal probability reaches this
         canvasSize: 2048,
@@ -254,7 +254,7 @@ date = "2025-08-06"
         // Initialize slider (log scale)
         lrSlider.min = CONFIG.learningRate.logMin;
         lrSlider.max = CONFIG.learningRate.logMax;
-        lrSlider.step = CONFIG.learningRate.step;
+        lrSlider.step = CONFIG.learningRate.logStep;
         const defaultLogValue = Math.log10(CONFIG.learningRate.default);
         lrSlider.value = defaultLogValue;
         

@@ -214,7 +214,7 @@ date = "2025-08-06"
         width: { default: 10, min: 2, max: 20 },
         height: { default: 10, min: 2, max: 20 },
         wallDensity: { default: 0.3, min: 0.1, max: 0.5, step: 0.05 },
-        learningRate: { default: 0.005, min: 0.0001, max: 1, step: 0.0001 },
+        learningRate: { default: 0.005, logMin: -4, logMax: 0, step: 0.1 },
         maxSteps: { default: 1000, min: 100, max: 5000, step: 100 },
         convergenceThreshold: 0.98, // Stop when goal probability reaches this
         canvasSize: 2048,
@@ -247,12 +247,14 @@ date = "2025-08-06"
         densityInput.value = CONFIG.wallDensity.default;
         document.getElementById('densityValue').textContent = CONFIG.wallDensity.default;
 
-        // Learning rate
+        // Learning rate (logarithmic scale)
         const lrInput = document.getElementById('learningRate');
-        lrInput.min = CONFIG.learningRate.min;
-        lrInput.max = CONFIG.learningRate.max;
+        lrInput.min = CONFIG.learningRate.logMin;
+        lrInput.max = CONFIG.learningRate.logMax;
         lrInput.step = CONFIG.learningRate.step;
-        lrInput.value = CONFIG.learningRate.default;
+        // Set slider to log value of default learning rate
+        const defaultLogValue = Math.log10(CONFIG.learningRate.default);
+        lrInput.value = defaultLogValue;
         document.getElementById('learningRateValue').textContent = CONFIG.learningRate.default;
 
         // Max steps
@@ -269,9 +271,11 @@ date = "2025-08-06"
         document.getElementById('densityValue').textContent = e.target.value;
     });
 
-    // Update learning rate display
+    // Update learning rate display (convert from log to actual value)
     document.getElementById('learningRate').addEventListener('input', (e) => {
-        document.getElementById('learningRateValue').textContent = e.target.value;
+        const logValue = parseFloat(e.target.value);
+        const actualValue = Math.pow(10, logValue);
+        document.getElementById('learningRateValue').textContent = actualValue.toFixed(6);
     });
 
     // Update max steps display
@@ -360,7 +364,9 @@ date = "2025-08-06"
         const width = parseInt(document.getElementById('width').value);
         const height = parseInt(document.getElementById('height').value);
         const wallProb = parseFloat(document.getElementById('density').value);
-        const learningRate = parseFloat(document.getElementById('learningRate').value);
+        // Convert log scale slider value to actual learning rate
+        const learningRateLog = parseFloat(document.getElementById('learningRate').value);
+        const learningRate = Math.pow(10, learningRateLog);
 
         // Disable controls during training
         setControlsEnabled(false);

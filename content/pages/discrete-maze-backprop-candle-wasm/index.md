@@ -870,16 +870,6 @@ date = "2025-08-06"
         animationId = requestAnimationFrame(drawFrame);
     }
 
-    // Handle window resize
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-            if (worker && !document.getElementById('generate').disabled) {
-                generateAndOptimize();
-            }
-        }, 250);
-    });
 
     // Initialize immediately when script loads
     console.log(`[0.00ms] Page script loaded, initializing controls and calling init()`);

@@ -92,10 +92,8 @@ So, when in doubt, go for the ungeneratable: what AI won't write until you do.
 
 ### Addendum
 
-I asked Claude 4.5 Sonnet to produce two summaries of this post:
-a [single-paragraph summary](https://claude.ai/share/d5405d52-0dea-4e22-a5a3-33c5ee56b9d3), and a [detailed summary](https://claude.ai/share/a56c71cd-faee-4eee-b7fc-6f65eea26fe6).
-I then asked it to reconstruct the original post [from the former](https://claude.ai/share/d9131728-1c6e-45dd-8f89-29a8984c9d41) and [from the latter](https://claude.ai/share/d83b3ebb-b115-49fb-b8ee-7f68e48bb741).
-
+I asked Claude 4.5 Sonnet to produce a [single-paragraph summary](https://claude.ai/share/d5405d52-0dea-4e22-a5a3-33c5ee56b9d3) of this post,
+then to try [reconstructing the original post from that summary](https://claude.ai/share/d9131728-1c6e-45dd-8f89-29a8984c9d41).
 
 [^1]: To put things into perspective, 1 gigawatt amounts to just about the [entire output of the average US nuclear reactor](https://www.energy.gov/ne/articles/infographic-how-much-power-does-nuclear-reactor-produce).
 

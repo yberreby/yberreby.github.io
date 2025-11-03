@@ -2,10 +2,6 @@
 title = "Some Thoughts on Apple's MLX"
 +++
 
-[PyTorch](https://pytorch.org/) is Meta's Python ML library. [JAX](https://docs.jax.dev/en/latest/) is Google's.
-
-Did you know that [MLX](https://github.com/ml-explore/mlx) is Apple's?
-
 ### Write Once, Run Nowhere?
 
 Apple currently describes its [MLX](https://github.com/ml-explore/mlx) framework as "an array framework for machine learning **on Apple silicon**".

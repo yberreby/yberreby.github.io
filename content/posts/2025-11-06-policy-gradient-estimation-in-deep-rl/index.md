@@ -59,7 +59,7 @@ If we do this, three main categories emerge:
 [^2]: Via SGD, Adam(W), RMSProp, Muon, etc.
 The undisputably-successful and still somewhat-recent [DreamerV3](https://danijar.com/project/dreamerv3/) (originally released in 2023) uses the [LaProp](https://arxiv.org/abs/2002.04839) optimizer (described as "RMSProp with momentum"), which I have never encountered elsewhere. [Muon](https://kellerjordan.github.io/posts/muon/) is now the default optimizer in [pufferlib](https://puffer.ai/) 3.0 ([relevant line of code](https://github.com/PufferAI/PufferLib/blob/35f165c4f721992022f4962708ce0cbec1fdf8b1/pufferlib/config/default.ini#L28); [tweet from the author, Joseph Suarez](https://x.com/jsuarez5341/status/1972364875990229065)).
 
-[^3]: See also GRPO's precursor [RLOO](https://arxiv.org/abs/2402.14740v2), and [this interesting discussion on RL for LLM post-training](https://lancelqf.github.io/note/llm_post_training/).
+[^3]: See also GRPO's precursor [RLOO](https://openreview.net/forum?id=r1lgTGL5DE) and [this interesting discussion on RL for LLM post-training](https://lancelqf.github.io/note/llm_post_training/).
 
 [^4]: Note that there is no _unbiased_ reparameterization of _categorical_ sampling, i.e. sampling from a discrete distribution. The [straight-through](https://arxiv.org/abs/1308.3432), [Gumbel-Softmax](https://arxiv.org/abs/1611.01144)/[concrete](https://arxiv.org/abs/1611.00712) and [ReinMax](https://github.com/microsoft/ReinMax) estimators are all biased, though each of these improves upon the previous one.
 

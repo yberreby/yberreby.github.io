@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-MR1689VXRE"></script>
+      <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-MR1689VXRE');
+      </script>
+
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+      
+    
+
+      <title>I Used Arch, BTW: macOS, Day 1 - @yberreby</title>
+
+      
+
+      
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+      
+
+      
+          <link rel="stylesheet" href="https://yberreby.com/site.css">
+          <link rel="stylesheet" href="https://yberreby.com/custom.css">
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+          
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div id="mobile-navbar" class="mobile-navbar">
+              <div class="mobile-header-logo">
+                <a href="/" class="logo">@yberreby - Yohaï-Eliel Berreby</a>
+              </div>
+              <div class="mobile-navbar-icon icon-out">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <nav id="mobile-menu" class="mobile-menu slideout-menu slideout-menu-left">
+              <ul class="mobile-menu-list">
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;yberreby.com&#x2F;posts">
+                            Posts
+                        </a>
+                    </li>
+                
+              </ul>
+            </nav>
+
+            <header id="header">
+                <div class="logo"><a href="https:&#x2F;&#x2F;yberreby.com">@yberreby - Yohaï-Eliel Berreby</a></div>
+                <nav class="menu">
+                    <ul>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;yberreby.com&#x2F;posts">
+                                    Posts
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="content" id="mobile-panel">
+                    
+
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://yberreby.com/posts/i-used-arch-btw-macos-day-1/#what-i-need-my-computer-for" class="toc-link">What I Need My Computer For</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://yberreby.com/posts/i-used-arch-btw-macos-day-1/#nine-beautiful-years-of-arch-linux" class="toc-link">Nine Beautiful Years of Arch Linux</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://yberreby.com/posts/i-used-arch-btw-macos-day-1/#hardware-that-wears-you-out" class="toc-link">Hardware That Wears You Out</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://yberreby.com/posts/i-used-arch-btw-macos-day-1/#eating-the-forbidden-fruit" class="toc-link">Eating the Forbidden Fruit</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://yberreby.com/posts/i-used-arch-btw-macos-day-1/#the-lazy-frankenmac" class="toc-link">The Lazy Frankenmac</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://yberreby.com/posts/i-used-arch-btw-macos-day-1/#nix-as-a-package-manager" class="toc-link">Nix as a Package Manager</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://yberreby.com/posts/i-used-arch-btw-macos-day-1/#of-course-it-doesn-t-work-out-of-the-box" class="toc-link">Of Course It Doesn&#x27;t Work Out of The Box</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://yberreby.com/posts/i-used-arch-btw-macos-day-1/#once-nix-is-set-up-you-re-flying" class="toc-link">Once Nix is Set Up, You&#x27;re Flying</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://yberreby.com/posts/i-used-arch-btw-macos-day-1/#closing-words" class="toc-link">Closing Words</a>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2F;&#x2F;yberreby.com&#x2F;posts&#x2F;i-used-arch-btw-macos-day-1&#x2F;">I Used Arch, BTW: macOS, Day 1</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2025-07-19</span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+      <p><strong>TL;DR</strong>:
+I used Arch Linux for nine years as a daily driver on non-Apple laptops.
+I received my new M4 Pro MacBook Pro yesterday.
+This recounts my experience configuring it to hit the ground running from day 1.</p>
+<p>If you're a Linux user making the switch to Apple Silicon, or thinking of doing so, this post may be of interest.</p>
+<p><img src="https://yberreby.com/posts/i-used-arch-btw-macos-day-1/./demo.png" alt="" /></p>
+<p><em><a href="https://zed.dev/">Zed</a>, <a href="https://github.com/nikitabobko/AeroSpace">AeroSpace</a>, <a href="https://www.raycast.com/">Raycast</a>'s &quot;Switch Windows&quot; and <a href="https://alacritty.org/">Alacritty</a> in action.</em></p>
+<h2 id="what-i-need-my-computer-for">What I Need My Computer For</h2>
+<p>The way one uses their computer is shaped by their needs, values, and habits.</p>
+<p>As of writing, I am midway through my PhD at McGill University and <a href="https://mila.quebec/en/directory/yohai-eliel-berreby">Mila</a>, focusing on neuro-AI research at <a href="https://www.mcgill.ca/physiology/">McGill's Department of Physiology</a>.
+My background is in computer engineering.</p>
+<p>My workflow as a PhD student involves a mix of:</p>
+<ul>
+<li>Filing, reading and annotating scientific papers using <a href="https://www.zotero.org/">Zotero</a>;</li>
+<li>Writing code in <a href="https://zed.dev/">Zed</a>, a fast text editor with first-class support for <a href="https://zed.dev/docs/configuring-languages">LSP and Tree-Sitter</a>, GPU acceleration, <a href="https://zed.dev/blog/we-have-to-start-over">Rust-powered multithreading</a>, and, non-negotiably, <a href="https://zed.dev/docs/vim">vim bindings</a>;</li>
+<li>Doing most of my computer interaction inside of a <a href="https://wiki.archlinux.org/title/Zsh">zsh</a> shell with a featureful prompt such as <a href="https://starship.rs/">Starship</a> (previously, <a href="https://grml.org/zsh/">grml-zsh-config</a> or <a href="https://ohmyz.sh/">oh-my-zsh</a>);</li>
+<li>Managing Python projects using Astral's <a href="https://docs.astral.sh/uv/">uv</a>;</li>
+<li>Writing bespoke command-line utilities in <a href="https://www.rust-lang.org/">Rust</a>;</li>
+<li>Using <a href="https://github.com/jax-ml/jax">JAX</a> and <a href="https://pytorch.org/">PyTorch</a> for numerical simulations and deep (reinforcement) learning;</li>
+<li>Doing exploratory development using local <a href="https://github.com/jupyterlab/jupyterlab">Jupyter Lab</a> notebooks<sup class="footnote-reference"><a href="#1">1</a></sup>;</li>
+<li>Firing off longer-running jobs on remote compute resources, using on-premises workstations or larger <a href="https://slurm.schedmd.com/overview.html">SLURM</a> clusters;</li>
+<li>Writing down notes in my <a href="https://github.com/org-roam/org-roam/">org-roam</a> personal knowledge base;</li>
+<li>Writing papers and slides in <a href="https://github.com/typst/typst">Typst</a> or LaTeX (if I have to);</li>
+<li>Collaborating with colleagues on <a href="https://zulip.com/">Zulip</a>, Slack, or in person;</li>
+<li>Attending scientific meetings in-person or virtually (and taking live notes in org-roam);</li>
+<li>Staring intensely at a whiteboard/wall/ceiling when I'm mulling over a problem (no tech required);</li>
+<li>Debugging anything and everything: driver issues on compute workstations, sub-millisecond timing code in <a href="https://en.wikipedia.org/wiki/Psychophysics">psychophysics</a> experiments using custom <a href="https://www.pjrc.com/teensy/">Teensy</a> photodiode contraptions, shared object loading in <a href="https://flir.custhelp.com/app/answers/detail/a_id/4327/~/flir-spinnaker-sdk---getting-started-with-the-spinnaker-sdk">proprietary camera software</a>, etc.</li>
+<li>Writing blog posts such as this one using a static site generator, <a href="https://github.com/getzola/zola">Zola</a>.</li>
+</ul>
+<p>Depending on the needs of the hour, I'll put on my researcher, engineer, sysadmin, or communicator hat, and I need my computing environment to support this workflow.</p>
+<h2 id="nine-beautiful-years-of-arch-linux">Nine Beautiful Years of Arch Linux</h2>
+<p>I didn't start out on Linux.
+I digitally grew up on <a href="https://en.wikipedia.org/wiki/System_7">System 7</a>, <a href="https://en.wikipedia.org/wiki/Mac_OS_9">Mac OS 9</a>, then <a href="https://en.wikipedia.org/wiki/Mac_OS_X_Snow_Leopard">Mac OS X</a>, in an Apple-centric household where &quot;Windows&quot; was a profanity.
+While the UNIX backbone of Mac OS X made it a great introduction to computing, I eventually grew frustrated with the developer experience, exorbitant repair costs (what do you mean, everything is glued or soldered?), lackluster GPU performance, and poor support for projects I wanted to hack on.
+As a result, I switched to <a href="https://archlinux.org/">Arch Linux</a> in 2016 after briefly trying Debian, Ubuntu, and Fedora.
+Since then, I've faithfully used Arch as my daily driver on various machines: a trusty <a href="https://www.asus.com/laptops/for-home/zenbook/zenbook-ux410/">Asus Zenbook UX410U</a>, two self-built desktop workstations, numerous VirtualBox VMs, two Tuxedo Pulse 15 laptops from <a href="https://www.tuxedocomputers.com/">Tuxedo Computers</a>, an Asus TUF A15, and others.
+After a couple of early reinstalls, I mostly migrated systems via SSD swaps or <a href="https://wiki.archlinux.org/title/Dd"><code>dd</code></a> clones.</p>
+<p>From day one, I embraced the Arch spirit, consistently running either <a href="https://i3wm.org/">i3</a> or <a href="https://swaywm.org/">sway</a> as my tiling window managers of choice, complete with a panel of shortcuts allowing me to get much of my computer use done at the speed of thought. I'm proud to say that over the years, a number of friends and coworkers adopted similar setups after seeing how fast one's computer use could get, in search of a streamlined yet ruthlessly efficient system configuration.</p>
+<p>Arch is a stellar distro.
+The package management story is top-notch.
+Packages are up-to-date, easy to create and maintain, and come close to the upstream sources without distro-specific patches.
+<a href="https://wiki.archlinux.org/title/Pacman"><code>pacman</code></a> just works, and the <a href="https://aur.archlinux.org/">AUR</a> gives you access to the most obscure of packages.
+The documentation on the <a href="https://wiki.archlinux.org/title/Main_page">Arch Wiki</a> is excellent, to the point that it's often worth checking when troubleshooting a problem on another distro.
+On Arch, you build your system piece by piece, trading initial setup time for deep understanding.
+This is both intellectually satisfying and practically empowering.</p>
+<p>Given how freeing the Arch experience is, it has been difficult for me to imagine using anything else.
+Occasionally having to use a Mac or Windows PC seemed like a test of patience; Arch felt like <em>home</em>.
+A computing environment that I trust, that I understand, built by and for me, sculpted according to my precise needs, changing by my will and not due to some tech company's idea of what's good for me (&quot;hey, it's 2025, we should <a href="https://www.apple.com/ca/newsroom/2025/06/apple-introduces-a-delightful-and-elegant-new-software-design/">make everything unreadable!</a>&quot;).</p>
+<p>So... what's the catch, then?
+Why migrate away from something so good?</p>
+<h2 id="hardware-that-wears-you-out">Hardware That Wears You Out</h2>
+<p>While Arch Linux itself, as a Linux distribution, is great, it needs to run on <em>something</em>.
+And when it comes to laptops, that <em>something</em> is not great.</p>
+<p>PC laptops are mostly not built for Linux.
+This means that any laptop purchase has historically come with a series of driver-related caveats.
+Will suspend-to-RAM work?
+Will I get more than a few hours of battery life after installing <a href="https://wiki.archlinux.org/title/TLP">TLP</a>?
+Do the GPU drivers work at all, including with <a href="https://wiki.archlinux.org/title/PRIME">PRIME</a>/<a href="https://wiki.archlinux.org/title/NVIDIA_Optimus">Optimus</a> switching?
+Will my Wi-Fi chipset randomly disconnect from WPA2 Enterprise networks or cause kernel panics?
+Can I use any of the &quot;fancy&quot; manufacturer features, such as a fingerprint reader, or are they locked behind proprietary drivers that only support Windows?
+Will my Bluetooth randomly disconnect and reconnect, or drop packets excessively?</p>
+<p>Most of these issues are not a concern on desktop workstation or server hardware, and indeed, I wouldn't run anything <em>but</em> Linux on those.
+However, on a laptop, having to take all of these into account is exhausting.
+I want to <em>use my laptop to tackle problems</em>, not to have my laptop <em>be</em> the problem.</p>
+<p>Driver issues aren't all there is.
+Anecdotally, I've recently been dealing with a series of catastrophic hardware failures: busted laptop hinges<sup class="footnote-reference"><a href="#2">2</a></sup> and screw mounts, random boot failures, spotty Bluetooth, trackpad glitches, and more, across my last few devices.
+Recently, two of my laptops kernel panicked from being <em>held wrong</em>, and the latest one (an Asus TUF A15) pops open like a piñata when opened without several layers of super-strength tape holding the case together.
+This machine is not even a year old<sup class="footnote-reference"><a href="#3">3</a></sup>.</p>
+<p>Of course, similar issues can and do occur on MacBooks as well, and my sample size is statistically insignificant.
+However, I don't think it is too much to ask for 1) warranties that are actually honored, and 2) hardware that amounts to more than a haphazardly assembled pile of fast components.</p>
+<p>Could a <a href="https://wiki.archlinux.org/title/Dell_XPS_15">Dell XPS</a>, <a href="https://wiki.archlinux.org/title/Laptop/Lenovo">Lenovo ThinkPad</a>, <a href="https://wiki.archlinux.org/title/Microsoft_Surface_Pro_9">Surface Pro</a>, <a href="https://www.tuxedocomputers.com/en/Arch-Linux-and-Manjaro-on-TUXEDO-computers.tuxedo">TUXEDO</a> or <a href="https://frame.work/ca/en">Framework Laptop</a> fit the bill?
+Probably, depending on the compromises one is willing to make.</p>
+<p>However, I decided to give Apple Silicon a chance this time around.
+This was partly curiosity—Apple laptops are known for their build quality, battery life, unified memory, and customer service.
+I had also briefly used a M1 MacBook Air out of necessity, while working on cross-compilation of OCaml code to iOS at <a href="https://www.ycombinator.com/companies/routine">Routine</a>, and came out quite impressed with the smoothness of the UX on this relatively cheap machine.</p>
+<p>Tired of fighting my <em>hardware</em>, I opted to fight &quot;my&quot; (Apple's, really) <em>software</em> this time around, trading my meticulously-honed setup for the foreign and locked-down macOS.</p>
+<h2 id="eating-the-forbidden-fruit">Eating the Forbidden Fruit</h2>
+<p>When I caved in and bought a custom <a href="https://www.apple.com/ca/shop/buy-mac/macbook-pro/14-inch-m4-pro">14&quot; 48GB M4 Pro MacBook Pro</a> with the intent of keeping macOS on it, reactions ranged from confusion (&quot;<em>this guy</em> bought a Mac?!&quot;) to glee (&quot;how the mighty have fallen!&quot;) to disappointment (&quot;you should have bought a Framework&quot;) to concern (&quot;are you sure you're OK?&quot;).
+The general sentiment was <a href="https://www.youtube.com/watch?v=wB3xTpw6ggI">whathehellishappening? 🎶</a>.</p>
+<p>Would running Linux on it be an option?
+No.
+<a href="https://asahilinux.org/">Asahi Linux</a> only delivers good support up until M2 chips, with <a href="https://asahilinux.org/docs/platform/feature-support/m4/">M4 Pro support remaining entirely inadequate</a>.
+So, macOS it is.
+Quite frankly, I probably still wouldn't try running Linux on it even if there were some Asahi support.
+If I'm going to be using Mac hardware, I might as well take full advantage of it.</p>
+<h2 id="the-lazy-frankenmac">The Lazy Frankenmac</h2>
+<p>Running macOS does not mean giving up on the past decade of accumulated experience.
+I live inside of a shell.
+I want my configuration to be as declarative as possible.
+A good <a href="https://en.wikipedia.org/wiki/Tiling_window_manager">tiling window manager</a> is non-negotiable.
+I want my window switching to be nearly instantaneous, and I am not about to start preferring the mouse/touchpad over the keyboard.</p>
+<p>I received my new machine yesterday, and opted to set it up the &quot;lazy power user&quot; way: I wanted to recover as much of my workflow as possible, without going down a rabbit hole of configuration.
+Not all battles are worth fighting.
+It is a delicate balance between <em>&quot;I don't have time to configure this, I have urgent things to do&quot;</em> and <em>&quot;I am now taking three times as long to do anything because my SSH agent doesn't work, my most-frequently-used shortcuts are gone, and I manage my packages with <code>./configure &amp;&amp; make &amp;&amp; make install</code>.&quot;</em></p>
+<p>I will live without my terminal's colors being configured <em>just right</em> for now, as long as they're reasonable.
+Same with my shell prompt; if it has a decent git indicator and autocompletion, that's a good start.
+There is something freeing in embracing sane defaults, then gradually improving them.</p>
+<p>Let's call this a &quot;Lazy Frankenmac&quot;—not in the Hackintosh sense, but in the sense that it's macOS set up in a Linux spirit.</p>
+<p>What key ingredients would that involve?</p>
+<ul>
+<li>A sensible package and configuration management story.</li>
+<li>A modern shell environment.</li>
+<li>A tiling window manager, in the spirit of <a href="https://i3wm.org/"><code>i3</code></a> / <a href="https://swaywm.org/"><code>sway</code></a> / <a href="https://hypr.land/"><code>hyprland</code></a>.</li>
+<li>A launcher in the spirit of <a href="https://wiki.archlinux.org/title/Dmenu"><code>dmenu</code></a> / <a href="https://github.com/davatorium/rofi"><code>rofi</code></a> / <a href="https://github.com/SimplyCEO/wofi"><code>wofi</code></a>.</li>
+</ul>
+<p>We're not going to get everything right in a day, far from it, but let's see how far we can get.</p>
+<h2 id="nix-as-a-package-manager"><a href="https://nixos.org/">Nix</a> as a Package Manager</h2>
+<p>First, let's get our package manager set up.
+Installing software by dragging and dropping .app files or running installers manually is... not ideal, and neither is the locked-down Mac App Store.</p>
+<p>The macOS package management story is not great.
+There's no good built-in solution.
+<a href="https://brew.sh/">Homebrew</a> is by far the most popular package manager, widely used by developers.
+<a href="https://www.macports.org/">MacPorts</a> is older but less popular.
+Neither is really comparable to Arch's <code>pacman</code>.</p>
+<p>There's something more exotic than Homebrew and MacPorts to try: you can run <a href="https://nixos.org/">Nix</a> on macOS.
+<a href="https://github.com/nix-darwin/nix-darwin"><code>nix-darwin</code></a> does the legwork and <a href="https://github.com/zhaofengli/nix-homebrew"><code>nix-homebrew</code></a> serves as a convenient escape hatch for when you need Homebrew <a href="https://github.com/Homebrew/homebrew-cask">Casks</a> or when the Nix package you need is missing or outdated.</p>
+<p>Nix is conceptually appealing (purely functional, declarative package and configuration management, yay!), but can be quite difficult to troubleshoot.
+I've used it a few times in limited contexts, but never as my primary package manager.
+Thankfully, there's a <a href="https://github.com/dustinlyons/nixos-config">popular starter template</a> that puts together <code>nix-darwin</code>, <code>nix-homebrew</code> and various other goodies to quickly get started with Nix on macOS!</p>
+<h2 id="of-course-it-doesn-t-work-out-of-the-box">Of Course It Doesn't Work Out of The Box</h2>
+<p>Following @dustinlyons's instructions as of <a href="https://github.com/dustinlyons/nixos-config/tree/da88287">commit <code>da88287</code></a>, I installed <em>Nix</em> using the Determinate Systems installer.
+This is not to be confused with installing <em>Determinate Nix</em> using that very same installer.
+Rookie mistake! Definitely not a footgun.</p>
+<p>I then <em>did not</em> add <code>experimental-features = nix-command flakes</code> to <code>/etc/nix/nix.conf</code> during setup.
+Those were already in <code>extra-experimental-features</code>.</p>
+<p>I followed the <code>starter-with-secrets</code> template:</p>
+<pre data-lang="zsh" style="background-color:#2b303b;color:#c0c5ce;" class="language-zsh "><code class="language-zsh" data-lang="zsh"><span style="color:#bf616a;">mkdir -p</span><span> nixos-config
+</span><span style="color:#96b5b4;">cd</span><span> nixos-config
+</span><span style="color:#bf616a;">nix</span><span> flake \
+</span><span style="color:#bf616a;">    --extra-experimental-features </span><span>&#39;</span><span style="color:#a3be8c;">nix-command flakes</span><span>&#39; \
+</span><span>    init \
+</span><span style="color:#bf616a;">    -t</span><span> github:dustinlyons/nixos-config#starter-with-secrets
+</span></code></pre>
+<p>That <code>--extra-experimental-features</code> flag, as specified by the template's README, was probably not necessary since it was already in <code>nix.conf</code>.</p>
+<p>My MBP is running macOS Sequoia 15.5.
+This is a fresh install, so I shouldn't have to <a href="https://determinate.systems/posts/nix-support-for-macos-sequoia/">&quot;prepare Nix&quot; for a Sequoia installation</a>.
+Yet, the installation failed at first, with a <code>mismatching GID</code> error.
+<a href="https://github.com/nix-darwin/nix-darwin/issues/1339#issuecomment-2661471788">Changing <code>stateVersion = 4;</code> to <code>stateVersion = 5;</code></a> in <code>hosts/darwin/default.nix</code> resolved the issue.</p>
+<p>I then encountered more issues.</p>
+<ul>
+<li><code>test-fs-cp.mjs</code> failed when trying to build <code>nodejs-22.17.0</code>.
+I don't need this LTS Node.js version anyway, so I replaced the <code>nodejs</code> package with <code>nodejs_24</code> and removed the corresponding <code>nodePackages</code> entries from the relevant <code>packages.nix</code> config.</li>
+<li>The <code>alacritty</code> configuration included in the template was obsolete, resulting in a number of <code>unused config key</code> warnings.</li>
+<li>I had an issue with the <code>masApps</code> key, which included entries for <code>1password</code> and <code>wireguard</code>. I discarded these, as I need neither.</li>
+<li>The Dock configuration was slightly broken out-of-the-box, but easy to adjust.</li>
+<li>The bundled Emacs configuration seems broken, with Emacs freezing on startup.</li>
+</ul>
+<p>Additionally, installing the <a href="https://github.com/nikitabobko/AeroSpace">AeroSpace</a> tiling WM as a Cask required adding an entry to <code>flake.nix</code>'s inputs:</p>
+<pre style="background-color:#2b303b;color:#c0c5ce;"><code><span>homebrew-aerospace = {
+</span><span>  url = &quot;github:nikitabobko/homebrew-tap&quot;;
+</span><span>  flake = false;
+</span><span>};
+</span></code></pre>
+<h2 id="once-nix-is-set-up-you-re-flying">Once Nix is Set Up, You're Flying</h2>
+<p>Once I got <code>nix run .#build-switch</code> to work well enough, it was a breeze to install a number of tools as a combination of <code>nix-homebrew</code> Casks, Nix packages, and <code>home-manager</code> entries.</p>
+<p>In no particular order, these include: Zed, Zotero, Firefox, Spotify, Proton Mail, Proton Mail Bridge, <a href="https://mynixos.com/nixpkgs/package/claude-code"><code>claude-code</code></a>, <a href="https://nixos.wiki/wiki/Rust"><code>rustup</code></a>, <a href="https://mynixos.com/nixpkgs/package/uv"><code>uv</code></a>, <a href="https://mynixos.com/nixpkgs/package/zola"><code>zola</code></a>, <a href="https://mynixos.com/nixpkgs/package/typst"><code>typst</code></a>, Signal, WhatsApp Web, Slack, Alacritty, KeePassXC, Raycast, Claude Desktop, and Zulip.
+I did install <a href="https://tailscale.com/">Tailscale</a> through its official <code>.pkg</code> installer; it needs a lot of low-level system access, and debugging the macOS networking stack is not my top priority at the moment.</p>
+<p>Key features are OK:</p>
+<p><strong>Window Management</strong>: For now, <a href="https://github.com/nikitabobko/AeroSpace">AeroSpace</a> + <a href="https://www.raycast.com/">Raycast</a> are a very acceptable replacement for sway + rofi/wofi.
+Following the official AeroSpace recommendation, I disabled the <code>Displays have separate Spaces</code> macOS feature.
+I have been enjoying <a href="https://manual.raycast.com/command-aliases-and-hotkeys">Raycast's hotkeys and aliases</a> so far; no <a href="https://github.com/jackielii/skhd.zig"><code>skhd</code></a> required (yet?).</p>
+<p><strong>Text Editing</strong>: I quickly <a href="https://vim.fandom.com/wiki/Map_caps_lock_to_escape_in_macOS">remapped Caps Lock to Escape</a> and set Zed to use vim bindings.
+@dustinlyons's starter template includes a reasonable configuration for vim itself.</p>
+<p><strong>Python and Rust</strong>: <code>uv</code> works, and I'm able to build Rust projects with dependencies on e.g. <code>openssl</code> using <a href="https://direnv.net/"><code>direnv</code></a>'s <code>use flake</code> and a lightweight <code>flake.nix</code>.</p>
+<p><strong>Browser</strong>:
+Firefox.
+Not much to say here.
+I only needed two Firefox extensions from the get-go: <a href="https://www.zotero.org/download/connectors">Zotero Connector</a> to save papers, uBlock Origin to get rid of ads.
+I could probably even have done without the latter, given Firefox's new built-in privacy features.</p>
+<p><strong>Shell</strong>: The zsh configuration included in the template is a decent start.
+I added <a href="https://atuin.sh/"><code>atuin</code></a> through <code>home-manager</code>, for featureful Ctrl+R shell history search.</p>
+<p><strong>Terminal Emulator</strong>: Currently using <a href="https://github.com/alacritty/alacritty">alacritty</a>.
+Also considering <a href="https://wezterm.org/index.html">WezTerm</a>.</p>
+<h2 id="closing-words">Closing Words</h2>
+<p>This is how far I got on the first day.
+This setup isn't perfect, but it's usable; I can perform most of my workflow without pulling my hair out.
+I'll be honing the system gradually.
+This includes slimming down and modernizing my <code>nixos-config</code>, understanding Nix beyond the surface level, mastering AeroSpace and Raycast, and fixing various little annoyances as they pop up.</p>
+<p>I'm surprised by how much I like this machine already.
+It is great to look at, hold, and type on.
+The trackpad is top-notch.
+Using it generally feels snappy.
+The built-in software gives the general impression of having been designed, not cobbled together.
+It remains to be seen how these initial impressions will hold up over time, and it is certainly a shame that one has to resort to third-party tools for something as fundamental as package management.
+But I suppose I can live with it in exchange for a machine that doesn't kernel panic when I open the lid at the wrong angle.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>Most of the code used in my notebooks lives in regular Python files and gets auto-reloaded using <code>%load_ext autoreload</code> and <code>%autoreload 2</code>.
+I frequently make interactive matplotlib plots using <a href="https://github.com/matplotlib/ipympl">ipympl</a> and <a href="https://ipywidgets.readthedocs.io/en/stable/">ipywidgets</a>.
+All notebooks are checked into git in text format using <a href="https://github.com/mwouts/jupytext">jupytext</a> pairing.</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>Look up &quot;Asus TUF hinge&quot; online and witness the countless complaints.</p>
+</div>
+<div class="footnote-definition" id="3"><sup class="footnote-definition-label">3</sup>
+<p>It is still under warranty, but it is in such a state that looking at it wrong will finish it off.
+Given that Asus is notorious for failing to honor their warranty and that I don't expect underpaid support engineers to treat it with the necessary deference, I am giving this cursed machine an early retirement as an unmoving appliance.
+It'll be fine; just don't breathe near it.</p>
+</div>
+
+
+      
+        
+        
+      
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2F;&#x2F;yberreby.com&#x2F;posts&#x2F;ungeneratable-writing&#x2F;">‹ Ungeneratable Writing</a>
+                    
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+                </div>
+            </main>
+
+            
+            
+        </div>
+
+      
+          <script type="text/javascript" src="https://yberreby.com/even.js" ></script>
+      
+    </body>
+
+</html>

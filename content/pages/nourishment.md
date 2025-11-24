@@ -1,14 +1,15 @@
 +++
-title = "Readings"
-path = "readings"
+title = "Nourishment"
+path = "nourishment"
 template = "about.html"
 +++
 
-# Readings
+# Nourishment
 
 > _I cannot remember the books I've read any more than the meals I have eaten; even so, they have made me._
 >
 > — Ralph Waldo Emerson
+
 
 ## Short Stories
 
@@ -18,12 +19,21 @@ template = "about.html"
 >
 > — THE ANATOMY OF MELANCHOLY, Part 2, Sect. II, Mem. IV.
 
-_2,996 words / 18,099 characters_; _\\(\infty\\) words / \\(\infty\\) characters_.
+_2,996 words / 18,099 characters_; _\\(\infty\\) words / \\(\infty\\) characters. 2025-10-27._
+
 
 ### [_Tower of Babylon_ - Ted Chiang](https://en.wikipedia.org/wiki/Tower_of_Babylon_(story))
 
-On building a stairway to heaven to pierce its secrets; what one may find on the way, and at the destination.
+> _[...] it was as if the earth had rejected him for his faithlessness, while heaven disdained to accept him._
 
 Soundtrack: _The Blue Notebooks_ by Max Richter and _Orphée_ by Jóhann Jóhannsson.
  
-_9,803 words / 53,663 characters_.
+_9,803 words / 53,663 characters. 2025-11-23._
+
+### [Division by Zero - Ted Chiang](https://en.wikipedia.org/wiki/Division_by_Zero_(short_story))
+
+> _“How would you know what I can experience?”_
+
+Soundtrack: _Vrioon_ by Ryuichi Sakamoto.
+
+_5,585 words / 31,662 characters. 2025-11-23._

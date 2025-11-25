@@ -14,7 +14,7 @@ template = "about.html"
 
 ### [Story of Your Life - Ted Chiang](https://en.wikipedia.org/wiki/Story_of_Your_Life)
 
-> _"From the beginning I knew my destination, and I chose my route accordingly."_
+> _From the beginning I knew my destination, and I chose my route accordingly._
 
 Soundtrack: _A Winged Victory for the Sullen_ by A Winged Victory for the Sullen; _Woodland_, The Paper Kites.
 
@@ -45,3 +45,27 @@ _9,803 words / 53,663 characters. 2025-11-23._
 > — THE ANATOMY OF MELANCHOLY, Part 2, Sect. II, Mem. IV.
 
 _2,996 words / 18,099 characters_; _\\(\infty\\) words / \\(\infty\\) characters. 2025-10-27._
+
+### [_Make a Mess, Clean it Up!_ - Donn Denman](https://folklore.org/Make_a_Mess,_Clean_it_Up!.html)
+
+> _Instead of avoiding the tough situations, he'd immediately create them, and immediately start learning how to handle the worst situation imaginable._
+
+_895 words / 4,965 characters._
+
+### [_I should have loved biology_ - James Somers](https://jsomers.net/i-should-have-loved-biology/)
+
+> _Someone probably told me that every cell in my body has the same DNA. But no one shook me by the shoulders, saying how crazy that was._
+
+_3,843 words / 22,800 characters._
+
+### [_Programming as Theory Building_ - Peter Naur](https://pages.cs.wisc.edu/~remzi/Naur.pdf)
+
+> _The problems of program modification arise from acting on the assumption that programming consists of program text production, instead of recognizing programming as an activity of theory building._
+
+_\~7,000 words / 40,000 characters._
+
+### [_This World of Ours_ - James Mickens](https://www.usenix.org/system/files/1401_08-12_mickens.pdf)
+
+> _The Mossad/not-Mossad duality is just one of the truths that security researchers try to hide from you._
+
+_\~2,989 words / 17,497 characters._

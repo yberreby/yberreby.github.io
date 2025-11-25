@@ -58,6 +58,12 @@ _895 words / 4,965 characters._
 
 _3,843 words / 22,800 characters._
 
+### [_The Giver_ - Lois Lowry](https://en.wikipedia.org/wiki/The_Giver)
+
+> _"Thank you for your childhood."_
+
+_\~47,589 words / 268,256 characters._
+
 ### [_Programming as Theory Building_ - Peter Naur](https://pages.cs.wisc.edu/~remzi/Naur.pdf)
 
 > _The problems of program modification arise from acting on the assumption that programming consists of program text production, instead of recognizing programming as an activity of theory building._

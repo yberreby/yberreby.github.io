@@ -37,8 +37,6 @@ I hold a _Diplôme d'Ingénieur_ from [Télécom Paris](https://www.telecom-pari
 
 ## More?
 
-Want to chat? You can [reach me via email](mailto:me@yberreby.com), or send me a message on [LinkedIn](https://www.linkedin.com/in/yberreby/).
-
-You can also find me on [GitHub](https://github.com/yberreby/) and [Mastodon](https://masto.ai/).
+Want to chat? You can [reach me via email](mailto:me@yberreby.com), or send me a message on [LinkedIn](https://www.linkedin.com/in/yberreby/). You can also find me on [GitHub](https://github.com/yberreby/) and [X](https://x.com/yberreby).
 
 <!-- Click [here](/posts) to read my posts. -->

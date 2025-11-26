@@ -81,3 +81,5 @@ _\~7,000 words / 40,000 characters._
 > _The Mossad/not-Mossad duality is just one of the truths that security researchers try to hide from you._
 
 _\~2,989 words / 17,497 characters._
+
+## [_Flowers for Algernon_ - Daniel Keyes](https://en.wikipedia.org/wiki/Flowers_for_Algernon)

@@ -9,7 +9,7 @@ draft = false
 
 Did you know that you can combine [optimal transport / transport theory](https://en.wikipedia.org/wiki/Transportation_theory_(mathematics)) with [chaos theory](https://en.wikipedia.org/wiki/Chaos_theory), specifically [strange attractors](https://en.wikipedia.org/wiki/Attractor#Strange_attractor), in order to draw arbitrary shapes?
 
-I always felt that reshaping the point densities of beautiful-looking strange attractors ([some examples here from Paul Bourke's website](https://paulbourke.net/fractals/lyapunov/)) should be possible in a rather straightforward manner.[^a]
+I have long felt that reshaping the point densities of beautiful-looking strange attractors ([some examples here from Paul Bourke's website](https://paulbourke.net/fractals/lyapunov/)) should be possible in a rather straightforward manner.[^a]
 
 I mean, look at these examples from Bourke's page, and tell me they can't become a "T" and an "O" with a wee bit of imagination:
 

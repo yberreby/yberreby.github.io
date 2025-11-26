@@ -12,6 +12,12 @@ template = "about.html"
 
 This is a decidedly non-comprehensive collection of such meals, provided by essays, short stories, books, movies, and other forms of media.
 
+## [_Understand_ - Ted Chiang](https://en.wikipedia.org/wiki/Understand_(story))
+
+Soundtrack: _And Their Refinement of the Decline_ by Stars of the Lid.
+
+_13,376 words / 78,937 characters. 2025-11-25._
+
 ## [_Story of Your Life_ - Ted Chiang](https://en.wikipedia.org/wiki/Story_of_Your_Life)
 
 > _From the beginning I knew my destination, and I chose my route accordingly._

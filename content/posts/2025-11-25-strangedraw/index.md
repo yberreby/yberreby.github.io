@@ -14,22 +14,20 @@ I mean, look at these examples from Bourke's page, and tell me they can't become
   <img src="./bourke_o.jpg"  style="flex:0 0 49%; height:20vh; object-fit:contain; display:block;" />
 </div>
 
-
-
 I've toyed with a few ways to bend chaos to my bidding.
-This includes allowing particles to evolve in their original Euclidean space, in order to preserve the richness of the chosen attractor's dynamics, while subjecting that space to a diffeomorphism in order to warp it such that the attractor's density matches that of the desired shape (typically binary: maximized in "filled" regions, and 0 elsewhere).
+This includes allowing particles to evolve in their original Euclidean space, in order to preserve the richness of the chosen attractor's dynamics, while subjecting that space to a diffeomorphism that warps it such that the attractor's density matches that of the desired shape (typically binary: maximized in "filled" regions, and 0 elsewhere).
 That "works", but the results don't necessarily look as good as one would expect. It also tends to be a little slow, as one needs to learn the diffeomorphism (which can be done by training a small MLP on the fly).
 
-There is a more direct yet effective way to blend chaos and order: using gradient-based optimization on the particles' state vector.
+There is a more direct and effective way to blend chaos and order: using gradient-based optimization on the particles' state vector.
 In particular, minimizing a loss based on a [Sliced Wasserstein Distance](https://pythonot.github.io/auto_examples/sliced-wasserstein/plot_variance.html) can push the empirical distribution formed by the particles (each of which can be seen as a realization of a random variable over the 2D plane) to match the distribution defined by some target shape.
 
 Here, the "sliced" aspect of SWD is meant to keep things fast enough to run in real-time; the \\( \mathcal{O}(n^2)\\) complexity of pairwise computation hits you really fast with 1,000-100,000 particles.
 
 A key advantage of using gradient-based optimization on top of the original dynamics is that it's very easy to keep things looking _interesting_, and play around with the relative strength of the forces acting on the particles.
-It also feels very natural, when one remembers that the continuous analog of gradient descent, [gradient flow](https://rbcborealis.com/research-blogs/gradient-flow/#Gradient_flow), _is_ a dynamical system, just like the one that produces the original attractor.[^0]
+It also feels very natural when one remembers that the continuous analog of gradient descent, [gradient flow](https://rbcborealis.com/research-blogs/gradient-flow/#Gradient_flow), _is_ a dynamical system, just like the one that produces the original attractor.[^0]
 
-At first, I just tried to use this idea (with a few other loss terms, such as using a [signed distance field](https://en.wikipedia.org/wiki/Signed_distance_function) to penalize the distance to the shape's boundary; this turns out to be unnecessary) to reshape the particles into an "O".
-My first attempts led to the discovery of very peculiar artifacts in extreme numerical regimes, which I turned into the following visualization (complete with audio - courtesy of [ElevenLabs](https://elevenlabs.io/)).
+At first, I just tried to reshape the particles into an "O", with a few other loss terms such as using a [signed distance field](https://en.wikipedia.org/wiki/Signed_distance_function) to penalize the distance to the shape's boundary (this turns out to be unnecessary).
+My first attempts led to the discovery of very peculiar artifacts in extreme numerical regimes, which I turned into the following visualization (complete with audio—courtesy of [ElevenLabs](https://elevenlabs.io/)).
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/_p-ggQkcSC8?si=mUKhjaHYroxxzspR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
@@ -41,7 +39,8 @@ After gleefully playing around with this glitch art and getting my proof-of-conc
 It is recommended to view it on a computer.
 
 If you let the demo run, the particles will settle into the shape of the target text, which can be edited freely in real-time (try it!). The weighting of the transportation loss will then be pushed to excessive values, then brought back down, in an endless cycle. I encourage you to play around with the system's various knobs; you can get very interesting-looking results by doing so.
-When the system is in a state where the text is legible, try typing your own text and watch how the particles reshape themselves. Uncheck the "auto-ramp" feature to play around with the "SWD strength" slider by yourself. That parameter is arguably the system's most important knob, as it controls the contribution of the _order_ imposed by the transportation loss.
+
+Some things to try: when the text is legible, type your own and watch the particles reshape themselves. Uncheck "auto-ramp" to play with the "SWD strength" slider yourself—that parameter is arguably the system's most important knob, as it controls the contribution of the _order_ imposed by the transportation loss.
 
 Claude converted my Python-Taichi-Torch mess into a runnable Web-based demo from the very first attempt; beyond that, I re-prompted it a few times to add a few quality-of-life features.
 
@@ -52,8 +51,7 @@ I must say there is something refreshing about being able to feed a LLM the "har
 Is it nearly as polished as I would have made it by myself? Of course not.
 But _would I have made it myself_, given the time investment? Maybe, maybe not; maybe much later.
 
-
-I have decided to call this fun little side project "StrangeDraw" (or `strangedraw` - capitalization TBD), in honor of the strange attractors that inspired it and that give it texture. I find the idea of _drawing with chaos_ fascinating.
+I have decided to call this fun little side project "StrangeDraw" (or `strangedraw`—capitalization TBD), in honor of the strange attractors that inspired it and that give it texture. I find the idea of _drawing with chaos_ fascinating.
 
 If I can find the time and there is interest, I might do a proper GitHub release at some point in the future, turning this from a one-off demo into a proper library. If you think this would be cool, please [shoot me an email](mailto:me@yberreby.com) or [open an issue here](https://github.com/yberreby/strangedraw/issues) with suggestions! I am debating how to approach it. Perhaps I will use it as an excuse to write some [Julia](https://julialang.org/) code[^1]. Or maybe I'll see how useable [IREE](https://iree.dev/) is for writing retargetable compute kernels using [MLIR Linalg](https://iree.dev/community/blog/2024-01-29-iree-mlir-linalg-tutorial/?hl=en-US#:~:text=The%20point%20of%20the%20above,intermediate%20representation%20in%20this%20compiler.)[^2].
 
@@ -67,4 +65,4 @@ PS: Is this useful? No. Is it pretty? I think so.
 
 [^1]: Julia has the incredible [DynamicalSystems.jl](https://juliadynamics.github.io/DynamicalSystemsDocs.jl/dynamicalsystems/stable/) and [ChaosTools.jl](https://juliadynamics.github.io/DynamicalSystemsDocs.jl/chaostools/stable/), which have been drawing my attention ever since I suffered at the metaphorical hands of the mad yet brilliant [XPP/XPPAUT](https://sites.pitt.edu/~phase/bard/bardware/xpp/xpp.html).
 
-[^2]: The promise of supporting CPU, Vulkan, CUDA, Metal and WebGPU all at once, for free, without hardcoding block sizes, seems very enticing. On top of that, did you know this intermediate representation is technically higher-level than OpenAI's [Triton](https://triton-lang.org/main/index.html)?) That blew my mind.
+[^2]: The promise of supporting CPU, Vulkan, CUDA, Metal and WebGPU all at once, for free, without hardcoding block sizes, seems very enticing. On top of that, did you know this intermediate representation is technically higher-level than OpenAI's [Triton](https://triton-lang.org/main/index.html)? That blew my mind.

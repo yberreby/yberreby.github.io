@@ -342,8 +342,7 @@ date = "2025-08-06"
                 switch (e.data.type) {
                     case 'wasm-loaded':
                         console.log(`[${(performance.now() - startTime).toFixed(2)}ms] WASM loaded in worker`);
-                        document.getElementById('info').textContent = 'WASM loaded, generating maze...';
-                        generateAndOptimize();
+                        document.getElementById('info').textContent = 'Ready! Click "Generate & Optimize" to start.';
                         break;
                     case 'error':
                         document.getElementById('info').textContent = 'Error: ' + e.data.message;
@@ -870,16 +869,6 @@ date = "2025-08-06"
         animationId = requestAnimationFrame(drawFrame);
     }
 
-    // Handle window resize
-    let resizeTimeout;
-    window.addEventListener('resize', () => {
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(() => {
-            if (worker && !document.getElementById('generate').disabled) {
-                generateAndOptimize();
-            }
-        }, 250);
-    });
 
     // Initialize immediately when script loads
     console.log(`[0.00ms] Page script loaded, initializing controls and calling init()`);

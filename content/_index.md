@@ -5,7 +5,9 @@ sort_by = "date"
 
 Hi! I'm Yohaï-Eliel Berreby, a Franco-Swiss researcher, engineer, and technophile, currently living in Montreal, Canada.
 
-I'm trying to crack intelligence.
+Today, I am building the world's first Active Vision Foundation Models (AVFMs).
+
+In general, I'm trying to crack intelligence.
 
 ## Research
 

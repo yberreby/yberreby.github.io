@@ -89,9 +89,9 @@ This last part—AirPods—is pretty important to the current design.
 When I'm working with Yad active,
 I put on my AirPods and act like I'm _on a call with Claude Code_.
 When I want to do my own thing, I'm muted;
-when I want to speak to it, I unmute myself
+when I want to speak to it, I press the stem to unmute myself,
 using `setInputMuteStateChangeHandler` (a flow inspired by [AirMute](https://github.com/Solarphlare/AirMute/))
-to capture stem click events.
+to capture the relevant event.
 
 I had initially used media player events (play/pause);
 while it's easy to capture a Play event,

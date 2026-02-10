@@ -148,6 +148,10 @@ I think it's pretty cool. In some ways, it really feels like living in the futur
 
 NB: No, this post was _not_ written by AI. I just like hyphens. Please don't take them away from me.
 
+---
+
+[To leave a comment, see the thread on Hacker News.](https://news.ycombinator.com/item?id=46966944)
+
 [^1]: While I _wish_ I were using Voxtral-Mini-Realtime,
 there was no real-time inference support for MLX / Apple Silicon when I checked.
 Soon, soon.

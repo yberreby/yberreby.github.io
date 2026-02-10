@@ -119,6 +119,7 @@ and can just rely on my existing Claude subscription.
 I have a feeling this might change in the future; I'm enjoying it for now.
 
 Opus gets my input—which can come in at any time, allowing me to interject while it's already working on something in order to keep it from going off-rails—and responds to it following a voice-appropriate interaction format: frequent, short sentences, narrating what it's about to do, what information it has gathered, its reasoning for doing things.
+These sentences get synthesized into audio with low latency by [Pocket TTS](https://kyutai.org/blog/2026-01-13-pocket-tts).
 Opus's behavior and contextual understanding are guided by a combination of a custom system message,
 and reminders / helpful metadata provided by my custom agent harness.
 It is able, and encouraged, to ask me questions.
@@ -143,6 +144,7 @@ Today, I had it write a simple dashboard which listens to ZeroMQ events from the
 so that I get visual feedback on the voice stack and Claude's actions.
 Streaming to a wide-screen TV makes it easy to get another view of what Claude is doing,
 through a higher-bandwidth channel than voice alone, without having to get close to the computer.
+The whole thing feels extremely fast, and will get faster as LLM inference does.
 
 I think it's pretty cool. In some ways, it really feels like living in the future, and what Siri / Google Assistant should have been: a voice assistant that actually saves me time. Because no, I _didn't_ mean to set a timer. Damn it, Siri.
 

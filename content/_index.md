@@ -5,7 +5,7 @@ sort_by = "date"
 
 Hi! I'm Yohaï-Eliel Berreby, a Franco-Swiss researcher, engineer, and technophile, currently living in Montreal, Canada.
 
-Today, I am building the world's first Active Vision Foundation Models (AVFMs).
+I am the creator of [CanViT](https://github.com/m2b3/CanViT-PyTorch), the first Active Vision Foundation Model (AVFM), which brings computational efficiency, representational quality and policy agnosticism to active vision.
 
 In general, I'm trying to crack intelligence.
 

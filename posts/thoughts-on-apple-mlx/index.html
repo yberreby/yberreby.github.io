@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-MR1689VXRE"></script>
+      <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-MR1689VXRE');
+      </script>
+
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+      
+    
+
+      <title>Some Thoughts on Apple&#x27;s MLX - @yberreby</title>
+
+      
+
+      
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+      
+
+      
+          <link rel="stylesheet" href="https://yberreby.com/site.css">
+          <link rel="stylesheet" href="https://yberreby.com/custom.css">
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+          
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div id="mobile-navbar" class="mobile-navbar">
+              <div class="mobile-header-logo">
+                <a href="/" class="logo">@yberreby - Yohaï-Eliel Berreby</a>
+              </div>
+              <div class="mobile-navbar-icon icon-out">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <nav id="mobile-menu" class="mobile-menu slideout-menu slideout-menu-left">
+              <ul class="mobile-menu-list">
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;yberreby.com&#x2F;posts">
+                            Posts
+                        </a>
+                    </li>
+                
+              </ul>
+            </nav>
+
+            <header id="header">
+                <div class="logo"><a href="https:&#x2F;&#x2F;yberreby.com">@yberreby - Yohaï-Eliel Berreby</a></div>
+                <nav class="menu">
+                    <ul>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;yberreby.com&#x2F;posts">
+                                    Posts
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="content" id="mobile-panel">
+                    
+
+<div class="post-toc" id="post-toc">
+    <h2 class="post-toc-title">Contents</h2>
+    <div class="post-toc-content always-active">
+        <nav id="TableOfContents">
+            <ul>
+                
+                <li>
+                    <a href="https://yberreby.com/posts/thoughts-on-apple-mlx/#write-once-run-nowhere" class="toc-link">Write Once, Run Nowhere?</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://yberreby.com/posts/thoughts-on-apple-mlx/#intriguing-peculiarities" class="toc-link">Intriguing Peculiarities</a>
+                    
+                </li>
+                
+                <li>
+                    <a href="https://yberreby.com/posts/thoughts-on-apple-mlx/#awkward-adolescence" class="toc-link">Awkward Adolescence</a>
+                    
+                </li>
+                
+            </ul>
+        </nav>
+    </div>
+</div>
+
+
+<article class="post">
+    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2F;&#x2F;yberreby.com&#x2F;posts&#x2F;thoughts-on-apple-mlx&#x2F;">Some Thoughts on Apple&#x27;s MLX</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2025-11-02</span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+      <h3 id="write-once-run-nowhere">Write Once, Run Nowhere?</h3>
+<p>Apple currently describes its <a href="https://github.com/ml-explore/mlx">MLX</a> framework as &quot;an array framework for machine learning <strong>on Apple silicon</strong>&quot;.
+Given its quest for vertical integration and interest in AI,
+it is unsurprising that Apple would rather come up with its own ML framework than depend on Meta's or Google's tooling.
+It is natural to view MLX as yet another of Apple's proprietary tools, built to fit Apple's needs, not those of the ML community at large.
+While MLX has automatic differentiation (autograd), and thus supports more than just inference, an Apple-Silicon-only framework could scarcely be more than a curiosity for ML practitioners who must target NVIDIA GPUs via CUDA, Google TPUs via <a href="https://openxla.org/xla">XLA</a>, or maybe the more exotic <a href="https://docs.olcf.ornl.gov/systems/frontier_user_guide.html">AMD Instinct MI250X instances on Oak Ridge's exaFLOPS-scale Frontier supercomputer</a>.</p>
+<p>Why go through the delicate task of rewriting and re-optimizing your training and inference code for a variety of platforms if you can avoid it?
+To make matters worse, as of writing, MLX <a href="https://github.com/ml-explore/mlx/discussions/671">requires you to write your own <code>jacobian</code> function</a> and <a href="https://github.com/ml-explore/mlx/issues/1238">has to defer to the CPU for matrix inversion</a>.
+That last one <em>hurts</em>.<sup class="footnote-reference"><a href="#1">1</a></sup></p>
+<p>That being said, the view of MLX as an Apple-only tool might end up becoming too narrow.
+MLX is still in its infancy; primitives will be added as time passes.
+It is also open source, thankfully.
+<a href="https://news.ycombinator.com/item?id=44565668">In June 2025, an early-stage CUDA backend for MLX was merged</a>, which has garnered much attention from the community, as one could soon hope to run MLX code on NVIDIA GPUs. At least, in theory.
+Will MLX end up offering serious, first-class support for CUDA, XLA, and others? Time will tell.
+While I'm somewhat optimistic, I wouldn't hold my breath.</p>
+<h3 id="intriguing-peculiarities">Intriguing Peculiarities</h3>
+<p>Setting aside MLX's uncertain future on non-Apple platforms and the harrowing dearth of <a href="https://developer.apple.com/metal/">GPU/Metal</a> support for &quot;advanced&quot; operations such as matrix inversion, MLX is still interesting.
+For non-production uses, it can be a fun learning exercise to see how far one can get by composing the primitives that <em>are</em> there or writing their own version of missing ones.
+MLX also comes with a few interesting particularities, including <a href="https://ml-explore.github.io/mlx/build/html/usage/unified_memory.html">unified-memory-centric design</a>, <a href="https://ml-explore.github.io/mlx/build/html/usage/lazy_evaluation.html">lazy evaluation</a>, support for <a href="https://ml-explore.github.io/mlx/build/html/usage/compile.html">graph compilation</a>, and a JAX-inspired API that <em>isn't</em> purely functional, <a href="https://docs.jax.dev/en/latest/notebooks/Common_Gotchas_in_JAX.html#pure-functions">unlike JAX's own API</a>.</p>
+<p>Unified Memory (UM), in the Apple/everything-soldered sense of the term, purposefully blurs the lines between CPU and GPU memory.
+While Apple can be credited with making high-bandwidth unified memory architectures relevant for ML, the competition has taken notice, notably AMD with their AI Max chips, which are being <a href="https://www.amd.com/en/blogs/2025/amd-ryzen-ai-max-upgraded-run-up-to-128-billion-parameter-llms-lm-studio.html">explicitly marketed for consumer inference of local LLMs</a>. <a href="https://news.ycombinator.com/item?id=43360894">Strix Halo</a> is worth watching, and the new <a href="https://frame.work/ca/en/desktop">Framework Desktop</a> will come with unified memory.
+MLX might end up being an interesting choice on such platforms.</p>
+<p>Lazy evaluation (i.e. not computing values until they must be materialized) is an intriguing choice, particularly combined with an imperative programming model, as is the case here.
+I have yet to form a proper opinion on this choice, so I will defer to <a href="https://ml-explore.github.io/mlx/build/html/usage/lazy_evaluation.html">the relevant documentation</a> for now.</p>
+<h3 id="awkward-adolescence">Awkward Adolescence</h3>
+<p>In effect, MLX is in a slightly ambiguous position of both competing and <em>not</em> competing with other deep-learning-oriented tensor programming libraries.
+If one sees it as a contender, it is up against Python incumbents (Meta's <a href="https://github.com/pytorch/pytorch">PyTorch</a>, Google's <a href="https://github.com/jax-ml/jax/">JAX</a>) and challengers (tiny corp's <a href="https://tinygrad.org/">tinygrad</a>), and perhaps even Rust frameworks like HuggingFace's <a href="https://github.com/huggingface/candle">candle</a>, or <a href="https://tracel.ai/">Tracel AI</a>'s <a href="https://github.com/tracel-ai/burn">burn</a>.</p>
+<p>In many production use cases, right now, MLX is the wrong choice.
+It is wildly immature compared to PyTorch and JAX, missing critical tooling, primitives, and features; it lacks the WebAssembly support that makes <a href="https://github.com/huggingface/candle">candle</a> or <a href="https://github.com/tracel-ai/burn/">burn</a> so attractive; and for now, it just doesn't work on non-Apple tensor hardware.</p>
+<p>Where it might be most interesting, however, is for writing small and fast ML code meant to run locally on Apple Silicon. To some extent, this has been possible through <code>jax-metal</code> (<a href="https://pypi.org/project/jax-metal/">PyPI</a>; <a href="https://developer.apple.com/metal/jax/">Apple's docs</a>) and PyTorch's MPS bindings, but both are missing features / fast kernels for a number of primitives. Moreover, <code>jax-metal</code> <a href="https://github.com/jax-ml/jax/issues/26968">hasn't been updated in a long time</a>, currently only supporting JAX up to <a href="https://github.com/jax-ml/jax/releases/tag/jax-v0.5.0">v0.5.0, released on January 17, 2025</a>. <a href="https://github.com/jax-ml/jax/releases/tag/jax-v0.8.0">JAX v0.8.0 came out on October 15, 2025</a>.</p>
+<p>I sadly suspect that Apple will be deprioritizing <code>jax-metal</code> going forward, and, likewise, I am not confident in the continued support for PyTorch's MPS bindings.
+At the moment, MLX seems to be the best-supported way to use MPS without writing low-level kernels by hand.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>One might say, &quot;why would you invert a matrix anyway? You should be solving a linear system!&quot; Well, <a href="https://github.com/ml-explore/mlx/issues/847">that still won't work</a>. Right now, <a href="https://ml-explore.github.io/mlx/build/html/python/_autosummary/mlx.core.linalg.solve.html"><code>mlx.core.linalg.solve</code></a> also runs on CPU, and so does <a href="https://ml-explore.github.io/mlx/build/html/python/_autosummary/mlx.core.linalg.svd.html"><code>mlx.core.linalg.svd</code></a>.</p>
+</div>
+
+
+      
+        
+        
+      
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2F;&#x2F;yberreby.com&#x2F;posts&#x2F;policy-gradient-estimation-in-deep-rl&#x2F;">‹ Policy Gradient Estimation in Deep RL</a>
+                    
+                    
+                        <a class="next" href="https:&#x2F;&#x2F;yberreby.com&#x2F;posts&#x2F;ungeneratable-writing&#x2F;">Ungeneratable Writing ›</a>
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+                </div>
+            </main>
+
+            
+            
+        </div>
+
+      
+          <script type="text/javascript" src="https://yberreby.com/even.js" ></script>
+      
+    </body>
+
+</html>

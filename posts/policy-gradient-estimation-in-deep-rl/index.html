@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-MR1689VXRE"></script>
+      <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'G-MR1689VXRE');
+      </script>
+
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+      <!-- Enable responsiveness on mobile devices-->
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    
+      
+    
+
+      <title>Policy Gradient Estimation in Deep RL - @yberreby</title>
+
+      
+
+      
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/slideout/1.0.1/slideout.min.js"></script>
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.js" integrity="sha384-K3vbOmF2BtaVai+Qk37uypf7VrgBubhQreNQe9aGsz9lB63dIFiQVlJbr92dw2Lx" crossorigin="anonymous"></script>
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/mathtex-script-type.min.js" integrity="sha384-zWYbd0NBwgTsgIdFKVprSfTh1mbMPe5Hz1X3yY4Sd1h/K1cQoUe36OGwAGz/PcDy" crossorigin="anonymous"></script>
+              
+          <script defer src="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/contrib/auto-render.min.js" integrity="sha384-kmZOZB5ObwgQnS/DuDg6TScgOiWWBiVt0plIRkZCmE6rDZGrEOQeHM5PcHi+nyqe" crossorigin="anonymous"
+                  onload="renderMathInElement(document.body);"></script>
+              
+          
+      
+
+      
+          <link rel="stylesheet" href="https://yberreby.com/site.css">
+          <link rel="stylesheet" href="https://yberreby.com/custom.css">
+          
+          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.0/dist/katex.min.css" integrity="sha384-9eLZqc9ds8eNjO3TmqPeYcDj8n+Qfa4nuSiGYa6DjLNcv9BtN69ZIulL9+8CqC9Y" crossorigin="anonymous">
+          
+      
+
+      
+      
+    </head>
+
+    <body>
+        <div class="container">
+
+            <div id="mobile-navbar" class="mobile-navbar">
+              <div class="mobile-header-logo">
+                <a href="/" class="logo">@yberreby - Yohaï-Eliel Berreby</a>
+              </div>
+              <div class="mobile-navbar-icon icon-out">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+
+            <nav id="mobile-menu" class="mobile-menu slideout-menu slideout-menu-left">
+              <ul class="mobile-menu-list">
+                
+                    <li class="mobile-menu-item">
+                        <a href="https:&#x2F;&#x2F;yberreby.com&#x2F;posts">
+                            Posts
+                        </a>
+                    </li>
+                
+              </ul>
+            </nav>
+
+            <header id="header">
+                <div class="logo"><a href="https:&#x2F;&#x2F;yberreby.com">@yberreby - Yohaï-Eliel Berreby</a></div>
+                <nav class="menu">
+                    <ul>
+                        
+                            <li>
+                                <a href="https:&#x2F;&#x2F;yberreby.com&#x2F;posts">
+                                    Posts
+                                </a>
+                            </li>
+                        
+                    </ul>
+                </nav>
+            </header>
+
+            <main>
+                <div class="content" id="mobile-panel">
+                    
+
+
+<article class="post">
+    
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="https:&#x2F;&#x2F;yberreby.com&#x2F;posts&#x2F;policy-gradient-estimation-in-deep-rl&#x2F;">Policy Gradient Estimation in Deep RL</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">2025-11-06</span>
+            
+        </div>
+    </header>
+
+    <div class="post-content">
+      <p><em>Disclaimer: This is an early version of this post.</em></p>
+<p>When we do deep Reinforcement Learning (RL) with a <a href="https://lilianweng.github.io/posts/2018-04-08-policy-gradient/">policy gradient</a> method<sup class="footnote-reference"><a href="#0">1</a></sup>, we have a neural network <em>policy</em> \( \pi_\theta \), and we're trying to optimize its <em>parameters</em> \(\theta\) in order to maximize the <em>expected return</em> \( J(\pi_\theta) = \mathbb{E} _ { \tau \sim \pi_\theta } \left[ R(\tau) \right] \), where \( R(\tau) \) is the <em>return</em> of a trajectory \(\tau\).
+In the case of <em>finite-horizon undiscounted return over \( T+1 \) timesteps</em>, we can write \( R(\tau) = \sum_{t=0}^{T} r_t \); for <em>infinite-horizon \(\gamma\)-discounted return</em><sup class="footnote-reference"><a href="#1b">2</a></sup>, we can write \( R(\tau) = \sum_{t=0}^{\infty} \gamma^t r_t \), with \(\gamma \in (0, 1) \).<sup class="footnote-reference"><a href="#1">3</a></sup></p>
+<p>There are many policy-gradient deep RL algorithms,
+with various approaches
+to the explore-exploit or bias-variance tradeoffs,
+stability tricks,
+data efficiency due to reusing stale rollouts,
+hyperparameter choices,
+etc.
+However,
+in order to use gradient-based optimization<sup class="footnote-reference"><a href="#2">4</a></sup>,
+they invariably estimate
+<em>the gradient of the expected return with respect to the policy parameters</em>,
+also known as <strong>the policy gradient</strong> \(  \nabla_\theta J \).</p>
+<p>I find it extremely useful to categorize deep RL algorithms according to how they estimate \( \nabla_\theta J \).
+Everything else is best understood in the context of its influence on this estimation.</p>
+<p>If we do this, three main categories emerge:</p>
+<ul>
+<li><strong><a href="https://en.wikipedia.org/wiki/Policy_gradient_method#REINFORCE">REINFORCE</a>-based \( \nabla_\theta J \) estimation</strong>: relies on the <strong><a href="https://web.stanford.edu/~ashlearn/RLForFinanceBook/PolicyGradient.pdf">Policy Gradient Theorem (PGT)</a></strong>, using the <a href="https://en.wikipedia.org/wiki/Informant_(statistics)">score function</a>) / <a href="https://andrewcharlesjones.github.io/journal/log-derivative.html">log-derivative trick</a> to compute an _unbiased_ (but high-variance) estimate of \( \nabla_\theta J \).
+<ul>
+<li><a href="https://spinningup.openai.com/en/latest/algorithms/vpg.html">VPG</a>/A2C/<a href="https://arxiv.org/abs/1602.01783">A3C</a>, <a href="https://spinningup.openai.com/en/latest/algorithms/trpo.html">TRPO</a>, and the widely-used/modern <strong><a href="https://spinningup.openai.com/en/latest/algorithms/ppo.html">PPO</a></strong> and <strong><a href="https://arxiv.org/abs/2402.03300">GRPO</a></strong><sup class="footnote-reference"><a href="#3">5</a></sup> all rely on REINFORCE.</li>
+<li>Key autograd-derived quantity: \( \nabla_\theta \log \pi_\theta \).
+<ul>
+<li>&quot;How would changes to the policy parameters affect the log-likelihood of a given action?&quot;</li>
+</ul>
+</li>
+<li>Requires a <strong>stochastic</strong> policy.</li>
+<li>Remains unbiased even for categorical actions.</li>
+<li>A value estimate is not structurally or theoretically required. However, in practice, baseline-free REINFORCE is incredibly slow to converge even on toy problems. This means that one usually trains a critic network to estimate the value function, in order to reduce variance.</li>
+<li>While some sort of baseline is a no-brainer, don't be so quick to assume you need a critic network: in <a href="https://arxiv.org/abs/2402.03300">DeepSeekMath's GRPO</a>, LLMs undergo RL training at scale without a critic, using simple averaging across \(k=64\) rollouts from the same prompt to produce a good-enough baseline.</li>
+</ul>
+</li>
+<li><strong>Critic-based \( \nabla_\theta J \) estimation</strong>, AKA &quot;backprop through a learned critic&quot;, yielding low-variance but biased (due to the critic's approximation being imperfect) gradient estimates.
+<ul>
+<li>This category includes <a href="https://spinningup.openai.com/en/latest/algorithms/ddpg.html">DDPG</a>, <a href="https://spinningup.openai.com/en/latest/algorithms/td3.html">TD3</a>, and <a href="https://spinningup.openai.com/en/latest/algorithms/sac.html">SAC</a>. SHAC, AHAC and SAPO (discussed in the next section) also partially rely on critic-based policy gradient estimation.</li>
+<li>Key autograd-derived quantities: \( \nabla_a Q \) and \( \nabla_\theta a \)
+<ul>
+<li>\( \nabla_a Q \): &quot;How would changes to the action affect my estimate of the state-action value function?&quot;</li>
+<li>\( \nabla_\theta a \): &quot;How would changes to the policy parameters affect the (sampled or deterministic) action?&quot;</li>
+<li>By combining the above through the chain rule, we estimate \( \nabla_\theta Q \): &quot;How would changes to the policy parameters affect my estimate of the state-action value function?&quot;</li>
+</ul>
+</li>
+<li>Here, the learned critic network is not just a variance-reduction trick; it is structurally indispensable for training the actor!</li>
+<li>This approach is compatible with <strong>deterministic actions</strong>, as seen in DPG/DDPG.</li>
+<li>When using stochastic actions (as in SAC), one normally relies on <strong>reparameterized sampling of actions</strong> in order to let autograd compute \( \nabla_\theta a \).<sup class="footnote-reference"><a href="#4">6</a></sup></li>
+</ul>
+</li>
+<li><strong>Simply backpropagating through the environment</strong>
+<ul>
+<li>Dead simple at its core: if the instantaneous reward and the dynamics are differentiable, we can just let autograd do the work, get an unbiased gradient estimate<sup class="footnote-reference"><a href="#5">7</a></sup>, and maximize the empirical reward without doing anything special.</li>
+<li>While this sounds great in theory (after all, why jump through hoops if autograd gives you unbiased gradients?), the resulting gradients can be very high-variance/norm, particularly at long horizons.</li>
+<li><a href="https://arxiv.org/abs/2209.13052">APG</a>, <a href="https://short-horizon-actor-critic.github.io/">SHAC</a>, <a href="https://adaptive-horizon-actor-critic.github.io/">AHAC</a> and <a href="https://rewarped.github.io/">SAPO</a> all rely on a <em>differentiable</em> environment, which enables each of them to use backpropagation through time.</li>
+<li>APG relies solely on BPTT; SHAC, AHAC and SAPO all combine BPTT with critic-based estimation at longer temporal horizons.</li>
+<li>If you're interested, you should read <a href="https://arxiv.org/abs/2202.00817">Do Differentiable Simulators Give Better Policy Gradients? (2022)</a>.</li>
+</ul>
+</li>
+</ul>
+<div class="footnote-definition" id="0"><sup class="footnote-definition-label">1</sup>
+<p>I will not discuss Deep Q-Learning (DQN) and other non-policy-gradient methods here, as they are out of scope for this post about deep policy gradient methods.</p>
+</div>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">3</sup>
+<p>For more details, see e.g. OpenAI's <a href="https://spinningup.openai.com/en/latest/spinningup/rl_intro.html">Spinning Up in Deep RL - Part 1: Key Concepts in RL</a>.</p>
+</div>
+<div class="footnote-definition" id="1b"><sup class="footnote-definition-label">2</sup>
+<p>Consider that choosing \( \gamma &lt; 1 \) still has a purpose in finite-horizon cases: it turns the <a href="https://www.cs.cmu.edu/~rsalakhu/10703/Lectures/Lecture3_exactmethods.pdf">Bellman expectation backup operator</a> into a <a href="https://en.wikipedia.org/wiki/Contraction_mapping">contraction mapping</a>, enabling <a href="https://datascience.stackexchange.com/questions/26938/what-exactly-is-bootstrapping-in-reinforcement-learning">bootstrapping</a> to work even with meaningless value estimates, as are produced early in training, before the critic has learned much.</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">4</sup>
+<p>Via SGD, Adam(W), RMSProp, Muon, etc.
+The undisputably-successful and still somewhat-recent <a href="https://danijar.com/project/dreamerv3/">DreamerV3</a> (originally released in 2023) uses the <a href="https://arxiv.org/abs/2002.04839">LaProp</a> optimizer (described as &quot;RMSProp with momentum&quot;), which I have never encountered elsewhere. <a href="https://kellerjordan.github.io/posts/muon/">Muon</a> is now the default optimizer in <a href="https://puffer.ai/">pufferlib</a> 3.0 (<a href="https://github.com/PufferAI/PufferLib/blob/35f165c4f721992022f4962708ce0cbec1fdf8b1/pufferlib/config/default.ini#L28">relevant line of code</a>; <a href="https://x.com/jsuarez5341/status/1972364875990229065">tweet from the author, Joseph Suarez</a>).</p>
+</div>
+<div class="footnote-definition" id="3"><sup class="footnote-definition-label">5</sup>
+<p>See also GRPO's precursor <a href="https://openreview.net/forum?id=r1lgTGL5DE">RLOO</a> and <a href="https://lancelqf.github.io/note/llm_post_training/">this interesting discussion on RL for LLM post-training</a>.</p>
+</div>
+<div class="footnote-definition" id="4"><sup class="footnote-definition-label">6</sup>
+<p>Note that there is no <em>unbiased</em> reparameterization of <em>categorical</em> sampling, i.e. sampling from a discrete distribution. The <a href="https://arxiv.org/abs/1308.3432">straight-through</a>, <a href="https://arxiv.org/abs/1611.01144">Gumbel-Softmax</a>/<a href="https://arxiv.org/abs/1611.00712">concrete</a> and <a href="https://github.com/microsoft/ReinMax">ReinMax</a> estimators are all biased, though each of these improves upon the previous one.</p>
+</div>
+<div class="footnote-definition" id="5"><sup class="footnote-definition-label">7</sup>
+<p>Assuming a differentiable simulator, rather than a learned model of the environment dynamics. In the latter case, we would still get <em>unbiased</em> gradients, but they would be derived from an objective that is itself biased, as is the case when backpropagating through a learned critic.</p>
+</div>
+
+
+      
+        
+        
+      
+    </div>
+
+    
+    
+
+    <div class="post-footer">
+        
+            
+            
+                <div class="post-nav">
+                    
+                        <a class="previous" href="https:&#x2F;&#x2F;yberreby.com&#x2F;posts&#x2F;strangedraw&#x2F;">‹ Drawing with Chaos</a>
+                    
+                    
+                        <a class="next" href="https:&#x2F;&#x2F;yberreby.com&#x2F;posts&#x2F;thoughts-on-apple-mlx&#x2F;">Some Thoughts on Apple&#x27;s MLX ›</a>
+                    
+                </div>
+            
+
+        
+
+    </div>
+
+    
+    
+</article>
+
+
+                </div>
+            </main>
+
+            
+            
+        </div>
+
+      
+          <script type="text/javascript" src="https://yberreby.com/even.js" ></script>
+      
+    </body>
+
+</html>

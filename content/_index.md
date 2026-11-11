@@ -5,7 +5,7 @@ sort_by = "date"
 
 Hi! I'm Yohaï-Eliel Berreby, a Franco-Swiss researcher, engineer, and technophile, currently living in Montreal, Canada.
 
-I am a PhD student at [McGill University](https://www.mcgill.ca/) and [Mila](https://mila.quebec/), and the creator of [CanViT](https://m2b3.github.io/CanViT/), the first Active-Vision Foundation Model (**[NeurIPS 2026](https://neurips.cc/virtual/2026/loc/paris/poster/151128)**).
+I am a PhD student at [McGill University](https://www.mcgill.ca/) and [Mila](https://mila.quebec/), and the creator of [CanViT](https://m2b3.github.io/CanViT/) (**[NeurIPS 2026](https://neurips.cc/virtual/2026/loc/paris/poster/151128)**), the first Active-Vision Foundation Model.
 Alongside my PhD, I work on **real-time intelligent perception at the edge** at [Lamarck Labs](https://lamarcklabs.com/).
 
 In general, I'm trying to crack intelligence.

@@ -15,11 +15,11 @@ In general, I'm trying to crack intelligence.
 My research is currently focused on the intersection of AI and neuroscience. How can the brain teach us to build better AI, and how can we use AI to understand the brain better?
 I am jointly supervised by [Prof. Suresh Krishna](https://m2b3.github.io/) (McGill, Department of Physiology) and [Prof. Audrey Durand](https://audrey-durand.fsg.ulaval.ca/en) (Université Laval, Mila).
 
-My **NeurIPS 2026** paper, ["CanViT: Toward Active-Vision Foundation Models"](https://arxiv.org/abs/2603.22570), brings computational efficiency, representational quality and policy agnosticism to active vision.
-The [code](https://github.com/m2b3/CanViT) and [pretrained models](https://huggingface.co/canvit) are publicly available.
+["CanViT: Toward Active-Vision Foundation Models"](https://arxiv.org/abs/2603.22570) was accepted at **NeurIPS 2026**.
+It brings computational efficiency, representational quality and policy agnosticism to active vision. The [code](https://github.com/m2b3/CanViT) and [pretrained models](https://huggingface.co/canvit) are publicly available.
 
-My first peer-reviewed publication, ["How forward remapping predicts perisaccadic biphasic mislocalization"](https://doi.org/10.1167/jov.25.7.4), was published in the Journal of Vision in June 2025.
-For this computational neuroscience project, I developed a high-performance [JAX](https://github.com/google/jax/) codebase to simulate systems of coupled [DFT](https://dynamicfieldtheory.org/) differential equations, with support for efficient interactive exploration of parameters. [The code is publicly available here](https://github.com/m2b3/jov-2025-forward-remapping-mislocalization-code).
+["How forward remapping predicts perisaccadic biphasic mislocalization"](https://doi.org/10.1167/jov.25.7.4) was published in the **Journal of Vision** in June 2025.
+For this computational neuroscience project, I developed a high-performance [JAX](https://github.com/google/jax/) codebase to simulate systems of coupled [DFT](https://dynamicfieldtheory.org/) differential equations, with support for efficient interactive exploration of parameters. The [code](https://github.com/m2b3/jov-2025-forward-remapping-mislocalization-code) is publicly available.
 
 ## A few things I've done
 

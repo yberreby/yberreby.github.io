@@ -1,4 +1,5 @@
-# On every push this script is executed
+# Builds the site with Zola and deploys it to the gh-pages branch.
+# The action's version is the Zola version; keep it equal to the local one (see CLAUDE.md).
 on: push
 name: Build and deploy GH Pages
 jobs:
@@ -7,12 +8,10 @@ jobs:
     if: github.ref == 'refs/heads/master' && github.repository == 'yberreby/yberreby.github.io'
     steps:
       - name: checkout
-        uses: actions/checkout@v3.0.0
+        uses: actions/checkout@v4
 
       - name: build_and_deploy
-        uses: shalzz/zola-deploy-action@v0.17.2
+        uses: shalzz/zola-deploy-action@v0.23.6
         env:
-          # Target branch
           PAGES_BRANCH: gh-pages
-          # Provide personal access token
-          TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

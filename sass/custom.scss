@@ -41,3 +41,10 @@ a.ref-link {
 code {
     color: gray;
 }
+
+// Required by Zola's syntax highlighter (giallo): one block per code line.
+.giallo-l {
+    display: inline-block;
+    min-height: 1lh;
+    width: 100%;
+}

@@ -1,0 +1,10 @@
+{% component post_title(page) %}
+    <header class="post__header">
+        <h1 class="post__title">
+            <a href="{{ page.permalink }}">{{ page.title }}</a>
+        </h1>
+        <div class="post__meta">
+            <span class="post__time">{{ page.date | date(format="%F") }}</span>
+        </div>
+    </header>
+{% endcomponent post_title %}

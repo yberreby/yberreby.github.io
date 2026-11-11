@@ -1,6 +1,3 @@
-{% import "post_macros.html" as post_macros %}
-
-
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -32,8 +29,10 @@
 
       <title>{% block title %}{{ config.title }}{% endblock title %}</title>
 
-      {% if config.generate_feed %}
-        <link rel="alternate" type={% if config.feed_filename == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=config.feed_filename) | safe }}">
+      {% if config.generate_feeds %}
+          {% for feed in config.feed_filenames %}
+          <link rel="alternate" type={% if feed == "atom.xml" %}"application/atom+xml"{% else %}"application/rss+xml"{% endif %} title="RSS" href="{{ get_url(path=feed) | safe }}">
+          {% endfor %}
       {% endif %}
 
       {% block js %}
@@ -110,7 +109,7 @@
                         <div class="posts">
                             {% for page in paginator.pages %}
                                 <article class="post">
-                                    {{ post_macros::title(page=page) }}
+                                    {{ <post_title page={page} /> }}
                                     <div class="post__summary">
                                         {{ page.summary | safe }}
                                     </div>

@@ -7,7 +7,7 @@ template = "about.html"
 
 Hello!
 
-{% katex(block=true) %}\KaTeX{% end %}
+{% <katex block={true}> %}\KaTeX{% </katex> %}
 
 <div id="chart"></div>
 <div>

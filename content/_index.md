@@ -30,7 +30,7 @@ Some of these achievements were featured in [official Télécom Paris press rele
 On the other side of the hackathon table, I was a Vice-President for the 2024 edition of [PharmaHacks](https://pharmahacks.ca/).
 I presided the Machine Learning committee, which designed neuro-AI and computational genomics challenges for 80+ students from across Canada, who were evaluated by a jury of McGill professors and myself.
 
-I was the 6th employee of the [Y Combinator startup Routine](https://www.ycombinator.com/companies/routine), which I joined in 2021 as an OCaml backend software engineer.
+I was the 6th employee of the [Y Combinator startup Routine](https://www.routine.co/about), which I joined in 2021 as an OCaml backend software engineer.
 I led the initiative that made it possible for Routine to use the same OCaml codebase on iOS as on other platforms, with fully-automated, type-safe, extensively-tested Swift <-> C <-> OCaml interoperability, and cross-compilation of OCaml code to `aarch64-apple-ios` (not officially supported at the time).
 
 Before that, I worked on network and infrastructure engineering at [C2S Bouygues](https://www.c2s-bouygues.com/).

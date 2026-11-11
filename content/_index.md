@@ -5,19 +5,20 @@ sort_by = "date"
 
 Hi! I'm Yohaï-Eliel Berreby, a Franco-Swiss researcher, engineer, and technophile, currently living in Montreal, Canada.
 
-I am the creator of [CanViT](https://github.com/m2b3/CanViT-PyTorch), the first Active Vision Foundation Model (AVFM), which brings computational efficiency, representational quality and policy agnosticism to active vision.
+I am a PhD student at McGill University and [Mila](https://mila.quebec/), and the creator of [CanViT](https://m2b3.github.io/CanViT/), the first Active-Vision Foundation Model (AVFM), which brings computational efficiency, representational quality and policy agnosticism to active vision.
+**["CanViT: Toward Active-Vision Foundation Models"](https://neurips.cc/virtual/2026/loc/paris/poster/151128) was accepted at NeurIPS 2026.**
+
+Alongside my PhD, I work on **real-time intelligent perception at the edge** at [Lamarck Labs](https://lamarcklabs.com/).
 
 In general, I'm trying to crack intelligence.
 
 ## Research
 
-I am currently a PhD student at McGill University's Department of Physiology and [Mila](https://mila.quebec/), jointly supervised by Prof. Suresh Krishna and Prof. Audrey Durand.
-My research is currently focused on the intersection of AI neuroscience. How can the brain teach us to build better AI, and how can we use AI to understand the brain better?
+My PhD, at McGill University's Department of Physiology and [Mila](https://mila.quebec/), is jointly supervised by Prof. Suresh Krishna and Prof. Audrey Durand.
+My research is currently focused on the intersection of AI and neuroscience. How can the brain teach us to build better AI, and how can we use AI to understand the brain better?
 
 My first peer-reviewed publication, ["How forward remapping predicts perisaccadic biphasic mislocalization"](https://doi.org/10.1167/jov.25.7.4), was published in the Journal of Vision in June 2025.
 For this computational neuroscience project, I developed a high-performance [JAX](https://github.com/google/jax/) codebase to simulate systems of coupled [DFT](https://dynamicfieldtheory.org/) differential equations, with support for efficient interactive exploration of parameters. [The code is publicly available here](https://github.com/m2b3/jov-2025-forward-remapping-mislocalization-code).
-
-These days, I work on **bringing scalable deep reinforcement learning to computer vision**.
 
 
 ## A few things I've done
